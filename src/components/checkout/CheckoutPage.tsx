@@ -38,16 +38,23 @@ const defaultProducts: Product[] = [
 
 export default function CheckoutPage({ initialProducts, onBack }: CheckoutPageProps) {
   // --- estados / lógica original (mantidos) ---
+  const [formData, setFormData] = useState<CustomerData>({
+  name: "",
+  email: "",
+  cpf: "",
+});
   const [products, setProducts] = useState<Product[]>(initialProducts || defaultProducts);
   const [couponInput, setCouponInput] = useState<string>("");
   const [cupom, setCupom] = useState("");
   const [isApplying, setIsApplying] = useState(false);
   const [couponMessage, setCouponMessage] = useState<string | null>(null);
+  
+
 
   const [showPix, setShowPix] = useState(false);
   const [pixData, setPixData] = useState<any>(null);
   const amount = 10; // valor de teste
-const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(false);
 
 
 
@@ -562,38 +569,39 @@ const [loading, setLoading] = useState(false);
                       try {
                         console.log("→ Iniciando criação do PIX...");
 
-                        setLoading(true); // opcional se você já tiver loading global
+                        const response = await fetch("/api/create-pix", {
+                          method: "POST",
+                          headers: { "Content-Type": "application/json" },
+                          body: JSON.stringify({
+                            value: amount,
+                            name: formData.name,
+                            email: formData.email,
+                            document: formData.cpf
+                          })
+                        });
 
-                        const order: Order = {
-                          // ==== PEGAR DADOS DO CHECKOUT ====
-                          products,
-                          total: amount,
-                          customer: customerData,
-                        };
+                        const data = await response.json();
+                        console.log("PIX DATA:", data);
 
-                        // ================================
-                        //  CHAMANDO API VERCEL REAL
-                        // ================================
-                        const pix = await createPixViaVercel(order);
+                        if (!response.ok) {
+                          alert("Erro ao gerar pagamento Pix. Tente novamente.");
+                          return;
+                        }
 
-                        console.log("→ PIX GERADO:", pix);
-
-                        // MOSTRAR A TELA DE PAGAMENTO
                         setPixData({
-                          pixCode: pix.copyPaste,
-                          qrCodeBase64: pix.qrCode,   // se for base64, senão ajustamos
-                          merchant: "SYNPAY",         // opcional (podemos pegar da API)
-                          cnpj: "00.000.000/0000-00", // opcional
+                          pixCode: data.copyPaste,
+                          qrCodeBase64: data.qrCode,
+                          merchant: "RECARGA",
+                          cnpj: "00.000.000/0000-00"
                         });
 
                         setShowPix(true);
-                      } catch (error) {
-                        console.error("🔥 ERRO NO PIX:", error);
-                        alert("Erro ao gerar pagamento Pix. Tente novamente.");
-                      } finally {
-                        setLoading(false);
+                      } catch (err) {
+                        console.error("ERRO NO PIX:", err);
+                        alert("Erro inesperado ao gerar PIX.");
                       }
                     }}
+
                   >
                     {loading ? "Gerando Pix..." : "Prosseguir para pagamento"}
                   </button>

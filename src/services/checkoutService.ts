@@ -7,6 +7,15 @@ import {
   PaymentResponse,
 } from "../types/checkout";
 
+
+export interface CustomerData {
+  name: string;
+  email: string;
+  cpf: string;
+  phone?: string;
+  birthDate?: string;
+}
+
 /* ======================================================
    1) CONSULTAR CEP
 ====================================================== */
