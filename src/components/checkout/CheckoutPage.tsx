@@ -39,16 +39,16 @@ const defaultProducts: Product[] = [
 export default function CheckoutPage({ initialProducts, onBack }: CheckoutPageProps) {
   // --- estados / lógica original (mantidos) ---
   const [formData, setFormData] = useState<CustomerData>({
-  name: "",
-  email: "",
-  cpf: "",
-});
+    name: "",
+    email: "",
+    cpf: "",
+  });
   const [products, setProducts] = useState<Product[]>(initialProducts || defaultProducts);
   const [couponInput, setCouponInput] = useState<string>("");
   const [cupom, setCupom] = useState("");
   const [isApplying, setIsApplying] = useState(false);
   const [couponMessage, setCouponMessage] = useState<string | null>(null);
-  
+
 
 
   const [showPix, setShowPix] = useState(false);
@@ -573,10 +573,10 @@ export default function CheckoutPage({ initialProducts, onBack }: CheckoutPagePr
                           method: "POST",
                           headers: { "Content-Type": "application/json" },
                           body: JSON.stringify({
-                            value: amount,
-                            name: formData.name,
+                            value: Math.round(amount * 100),   // 🔥 valor EM CENTAVOS
+                            name: formData.fullName,           // 🔥 nome correto
                             email: formData.email,
-                            document: formData.cpf
+                            document: formData.cpf.replace(/\D/g, "") // 🔥 CPF sem máscara
                           })
                         });
 
@@ -601,6 +601,7 @@ export default function CheckoutPage({ initialProducts, onBack }: CheckoutPagePr
                         alert("Erro inesperado ao gerar PIX.");
                       }
                     }}
+
 
                   >
                     {loading ? "Gerando Pix..." : "Prosseguir para pagamento"}
