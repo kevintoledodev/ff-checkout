@@ -6,6 +6,7 @@ import CustomerForm from './CustomerForm';
 import PaymentMethods from './PaymentMethods';
 import CouponInput from './CouponInput';
 import PixPayment from '../checkout/PixPayment';
+import '../../services/checkoutService'
 import { getUTMParams, sendAnalyticsEvent } from '../../services/checkoutService';
 import {
   validateCPF, validatePhone, validateCEP, validateBirthDate, formatPhone, formatCPF, validateEmail
@@ -46,6 +47,7 @@ export default function CheckoutPage({ initialProducts, onBack }: CheckoutPagePr
   const [showPix, setShowPix] = useState(false);
   const [pixData, setPixData] = useState<any>(null);
   const amount = 10; // valor de teste
+const [loading, setLoading] = useState(false);
 
 
 
@@ -181,7 +183,6 @@ export default function CheckoutPage({ initialProducts, onBack }: CheckoutPagePr
   const [shipping] = useState(0);
   const [discount, setDiscount] = useState(0);
   const [couponCode, setCouponCode] = useState<string>();
-  const [loading, setLoading] = useState(false);
   const [showPixModal, setShowPixModal] = useState(false);
   const [paymentResponse, setPaymentResponse] = useState<any>(null);
 
@@ -372,10 +373,10 @@ export default function CheckoutPage({ initialProducts, onBack }: CheckoutPagePr
         </header>
 
         <main className="container main-content ff-main">
-          
+
           <form onSubmit={(e) => e.preventDefault()} className="ff-checkout-grid">
             {/* --- coluna central do card (visual principal) --- */}
-             
+
             <section className="ff-card">
               <button type="button" className="ff-back-btn" onClick={onBack}><svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 24 24"><g fill="none" fill-rule="evenodd"><path d="M24 0v24H0V0zM12.593 23.258l-.011.002l-.071.035l-.02.004l-.014-.004l-.071-.035q-.016-.005-.024.005l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427q-.004-.016-.017-.018m.265-.113l-.013.002l-.185.093l-.01.01l-.003.011l.018.43l.005.012l.008.007l.201.093q.019.005.029-.008l.004-.014l-.034-.614q-.005-.019-.02-.022m-.715.002a.02.02 0 0 0-.027.006l-.006.014l-.034.614q.001.018.017.024l.015-.002l.201-.093l.01-.008l.004-.011l.017-.43l-.003-.012l-.01-.01z" /><path fill="currentColor" d="M7.94 13.06a1.5 1.5 0 0 1 0-2.12l5.656-5.658a1.5 1.5 0 1 1 2.121 2.122L11.122 12l4.596 4.596a1.5 1.5 0 1 1-2.12 2.122l-5.66-5.658Z" /></g></svg> Voltar</button>
 
@@ -412,187 +413,210 @@ export default function CheckoutPage({ initialProducts, onBack }: CheckoutPagePr
                 </div>
               </div>
 
-               {!showPix && (
-              <div className="checkout-form">
+              {!showPix && (
+                <div className="checkout-form">
 
 
-                {/* CUPOM */}
-                <div className="cupom-area">
-                  <label>Código Promocional</label>
+                  {/* CUPOM */}
+                  <div className="cupom-area">
+                    <label>Código Promocional</label>
 
-                  <div className="cupom-box">
-                    <input
-                      type="text"
-                      placeholder="Código Promocional. Exemplo: PROMO1234"
-                      value={couponInput}
-                      onChange={(e) => setCouponInput(e.target.value)}
-                      className="cupom-input"
-                    />
+                    <div className="cupom-box">
+                      <input
+                        type="text"
+                        placeholder="Código Promocional. Exemplo: PROMO1234"
+                        value={couponInput}
+                        onChange={(e) => setCouponInput(e.target.value)}
+                        className="cupom-input"
+                      />
 
 
 
-                    <button
-                      type="button"
-                      className={`btn-aplicar ${couponInput.trim() ? "ativo" : "inativo"}`}
-                      disabled={!couponInput.trim() || isApplying}
-                      onClick={async () => {
-                        if (!couponInput.trim()) return;
+                      <button
+                        type="button"
+                        className={`btn-aplicar ${couponInput.trim() ? "ativo" : "inativo"}`}
+                        disabled={!couponInput.trim() || isApplying}
+                        onClick={async () => {
+                          if (!couponInput.trim()) return;
 
-                        setIsApplying(true);
+                          setIsApplying(true);
 
-                        await new Promise(resolve => setTimeout(resolve, 600));
+                          await new Promise(resolve => setTimeout(resolve, 600));
 
-                        // aplica o cupom no seu sistema
-                        handleApplyCoupon(couponInput.trim(), 0);
+                          // aplica o cupom no seu sistema
+                          handleApplyCoupon(couponInput.trim(), 0);
 
-                        // mensagem vermelha (sempre)
-                        setCouponMessage("Cupom inválido ou expirado.");
+                          // mensagem vermelha (sempre)
+                          setCouponMessage("Cupom inválido ou expirado.");
 
-                        setIsApplying(false);
-                      }}
-                    >
-                      {isApplying ? "Aplicando..." : "Aplicar"}
-                    </button>
-                  </div>
-                  {couponMessage && (
-                    <p style={{ color: "#ff4d4d", fontSize: "12px", marginTop: "6px" }}>
-                      {couponMessage}
+                          setIsApplying(false);
+                        }}
+                      >
+                        {isApplying ? "Aplicando..." : "Aplicar"}
+                      </button>
+                    </div>
+                    {couponMessage && (
+                      <p style={{ color: "#ff4d4d", fontSize: "12px", marginTop: "6px" }}>
+                        {couponMessage}
+                      </p>
+                    )}
+
+                    <p className="legend">
+                      Possui um cupom de desconto? Digite acima para aplicar
                     </p>
-                  )}
-
-                  <p className="legend">
-                    Possui um cupom de desconto? Digite acima para aplicar
-                  </p>
-                </div>
-
-
-
-
-                <div className="input-group">
-                  <label>Nome Completo </label>
-                  <input
-                    type="text"
-                    placeholder="Nome Completo"
-                    value={customerData.fullName || ""}
-                    onChange={(e) =>
-                      onCustomerChange("fullName", e.target.value)
-                    }
-                  />
-
-
-
-
-                </div>
-
-
-                <div className="input-group">
-                  <label>E-mail </label>
-                  <input
-                    type="text"
-                    value={customerData.email}
-                    onChange={(e) => handleValidateEmail(e.target.value)}
-                  />
-                  {errors.email && <p className="error-text">{errors.email}</p>}
-
-
-                  <datalist id="email-options">
-                    {emailSuggestion(customerData.email).map((suggestion) => (
-                      <option key={suggestion} value={suggestion} />
-                    ))}
-                  </datalist>
-                </div>
-
-
-
-                <div className="two-columns">
-                  <div className="input-group">
-                    <label>CPF </label>
-                    <input
-                      type="text"
-                      value={customerData.cpf}
-                      onChange={handleCPFChange}
-                      placeholder="CPF"
-                    />
                   </div>
 
 
 
 
                   <div className="input-group">
-                    <label>Data de Nascimento</label>
+                    <label>Nome Completo </label>
                     <input
                       type="text"
-                      value={customerData.birthDate}
-                      onChange={handleBirthChange}
-                      placeholder="DD/MM/AAAA"
+                      placeholder="Nome Completo"
+                      value={customerData.fullName || ""}
+                      onChange={(e) =>
+                        onCustomerChange("fullName", e.target.value)
+                      }
+                    />
+
+
+
+
+                  </div>
+
+
+                  <div className="input-group">
+                    <label>E-mail </label>
+                    <input
+                      type="text"
+                      value={customerData.email}
+                      onChange={(e) => handleValidateEmail(e.target.value)}
+                    />
+                    {errors.email && <p className="error-text">{errors.email}</p>}
+
+
+                    <datalist id="email-options">
+                      {emailSuggestion(customerData.email).map((suggestion) => (
+                        <option key={suggestion} value={suggestion} />
+                      ))}
+                    </datalist>
+                  </div>
+
+
+
+                  <div className="two-columns">
+                    <div className="input-group">
+                      <label>CPF </label>
+                      <input
+                        type="text"
+                        value={customerData.cpf}
+                        onChange={handleCPFChange}
+                        placeholder="CPF"
+                      />
+                    </div>
+
+
+
+
+                    <div className="input-group">
+                      <label>Data de Nascimento</label>
+                      <input
+                        type="text"
+                        value={customerData.birthDate}
+                        onChange={handleBirthChange}
+                        placeholder="DD/MM/AAAA"
+                      />
+                    </div>
+                  </div>
+                  {errors.birthDate && <p className="error-text-data">{errors.birthDate}</p>}
+
+
+
+
+                  <div className="input-group">
+                    <label>Número de telefone </label>
+                    <input
+                      type="text"
+                      value={formatPhone(customerData.phone)}
+                      onChange={(e) => {
+                        const raw = e.target.value.replace(/\D/g, "");
+                        setCustomerData({ ...customerData, phone: raw });
+                      }}
+                      placeholder="Número de telefone"
                     />
                   </div>
-                </div>
-                {errors.birthDate && <p className="error-text-data">{errors.birthDate}</p>}
+
+                  {errors.cpf && <p style={{ position: 'relative', top: '20' }} className="error-text-cpf">{errors.cpf}</p>}
 
 
 
 
-                <div className="input-group">
-                  <label>Número de telefone </label>
-                  <input
-                    type="text"
-                    value={formatPhone(customerData.phone)}
-                    onChange={(e) => {
-                      const raw = e.target.value.replace(/\D/g, "");
-                      setCustomerData({ ...customerData, phone: raw });
+
+
+                  <button
+                    type="button"
+                    className={`pay-button ${allValid ? "active" : "disabled"}`}
+                    disabled={!allValid || loading}
+                    onClick={async () => {
+                      try {
+                        console.log("→ Iniciando criação do PIX...");
+
+                        setLoading(true); // opcional se você já tiver loading global
+
+                        const order: Order = {
+                          // ==== PEGAR DADOS DO CHECKOUT ====
+                          products,
+                          total: amount,
+                          customer: customerData,
+                        };
+
+                        // ================================
+                        //  CHAMANDO API VERCEL REAL
+                        // ================================
+                        const pix = await createPixViaVercel(order);
+
+                        console.log("→ PIX GERADO:", pix);
+
+                        // MOSTRAR A TELA DE PAGAMENTO
+                        setPixData({
+                          pixCode: pix.copyPaste,
+                          qrCodeBase64: pix.qrCode,   // se for base64, senão ajustamos
+                          merchant: "SYNPAY",         // opcional (podemos pegar da API)
+                          cnpj: "00.000.000/0000-00", // opcional
+                        });
+
+                        setShowPix(true);
+                      } catch (error) {
+                        console.error("🔥 ERRO NO PIX:", error);
+                        alert("Erro ao gerar pagamento Pix. Tente novamente.");
+                      } finally {
+                        setLoading(false);
+                      }
                     }}
-                    placeholder="Número de telefone"
-                  />
+                  >
+                    {loading ? "Gerando Pix..." : "Prosseguir para pagamento"}
+                  </button>
+
                 </div>
-
-                {errors.cpf && <p style={{ position: 'relative', top: '20' }} className="error-text-cpf">{errors.cpf}</p>}
-
-
-
-
-
-
-                <button
-                  type="button"
-                  className={`pay-button ${allValid ? "active" : "disabled"}`}
-                  disabled={!allValid}
-                  onClick={() => {
-                    console.log("CLICOU NO BOTAO");
-
-                    const fakePix = {
-                      pixCode: "00020101021226830014br.gov.bcb.pix...",
-                      qrCodeBase64: "iVBORw0KGgoAAAANSUhEUgAA...",
-                      merchant: "PAGSEGURO TECNOLOGIA LTDA",
-                      cnpj: "06.375.668/0003-61",
-                    };
-
-                    setPixData(fakePix);
-                    setShowPix(true);
-                  }}
-                >
-                  Prosseguir para pagamento
-                </button>
-                
-              </div>
               )}
-                  
+
 
             </section>
-              
-              
+
+
           </form>
 
-           {showPix && (
-        <PixPayment
-          pixCode={pixData.pixCode}
-          qrCodeBase64={pixData.qrCodeBase64}
-          amount={amount}
-          merchantName={pixData.merchant}
-          merchantCnpj={pixData.cnpj}
-          onBack={() => setShowPix(false)}
-        />
-      )}
+          {showPix && (
+            <PixPayment
+              pixCode={pixData.pixCode}
+              qrCodeBase64={pixData.qrCodeBase64}
+              amount={amount}
+              merchantName={pixData.merchant}
+              merchantCnpj={pixData.cnpj}
+              onBack={() => setShowPix(false)}
+            />
+          )}
         </main>
 
 
@@ -621,7 +645,7 @@ export default function CheckoutPage({ initialProducts, onBack }: CheckoutPagePr
 
       {console.log("showPix:", showPix)}
 
-     
+
 
     </>
   );

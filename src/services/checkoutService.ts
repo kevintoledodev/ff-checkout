@@ -1,4 +1,4 @@
-// checkoutService.ts — FINAL CORRIGIDO
+// checkoutService.ts — VERSÃO OTIMIZADA E FINAL
 
 import {
   Order,
@@ -7,9 +7,9 @@ import {
   PaymentResponse,
 } from "../types/checkout";
 
-// ======================================================
-// 1) CONSULTAR CEP
-// ======================================================
+/* ======================================================
+   1) CONSULTAR CEP
+====================================================== */
 export const fetchAddressByCEP = async (
   cep: string
 ): Promise<ViaCEPResponse | null> => {
@@ -30,9 +30,9 @@ export const fetchAddressByCEP = async (
   }
 };
 
-// ======================================================
-// 2) VALIDAR CUPOM
-// ======================================================
+/* ======================================================
+   2) VALIDAR CUPOM
+====================================================== */
 export const validateCoupon = async (
   couponCode: string
 ): Promise<CouponValidationResponse> => {
@@ -58,14 +58,11 @@ export const validateCoupon = async (
   }
 };
 
-
-
-// ======================================================
-// 3) GERAR PIX VIA VERCEL — VERSÃO DEFINITIVA
-// ======================================================
-
+/* ======================================================
+   3) GERAR PIX VIA VERCEL — DEFINITIVO
+====================================================== */
 export async function createPixViaVercel(order: Order) {
-  const endpoint = "/api/create-order"; // chamada interna no deploy
+  const endpoint = "/api/create-order"; // caminho interno no deploy
 
   const payload = {
     amount: Number(order.total.toFixed(2)),
@@ -84,11 +81,18 @@ export async function createPixViaVercel(order: Order) {
     body: JSON.stringify(payload),
   });
 
-  const data = await response.json();
+  let data: PaymentResponse;
+
+  try {
+    data = await response.json();
+  } catch (error) {
+    console.error("🔥 Erro convertendo JSON:", error);
+    throw new Error("Resposta inválida da API");
+  }
 
   if (!response.ok) {
     console.error("🔥 Erro API Vercel:", data);
-    throw new Error("Erro ao gerar Pix");
+    throw new Error(data?.message || "Erro ao gerar Pix");
   }
 
   console.log("→ Resposta da SyncPay:", data);
@@ -100,9 +104,9 @@ export async function createPixViaVercel(order: Order) {
   };
 }
 
-// ======================================================
-// 4) UTM
-// ======================================================
+/* ======================================================
+   4) UTM
+====================================================== */
 export const getUTMParams = (): Record<string, string> => {
   const params = new URLSearchParams(window.location.search);
   const utmParams: Record<string, string> = {};
@@ -117,9 +121,9 @@ export const getUTMParams = (): Record<string, string> => {
   return utmParams;
 };
 
-// ======================================================
-// 5) ANALYTICS
-// ======================================================
+/* ======================================================
+   5) ANALYTICS
+====================================================== */
 export const sendAnalyticsEvent = (
   eventName: string,
   eventData?: Record<string, unknown>

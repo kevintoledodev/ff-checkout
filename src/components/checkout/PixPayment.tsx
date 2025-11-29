@@ -3,40 +3,40 @@ import React from "react";
 import "../../styles/pixpayment.css";
 
 interface PixPaymentProps {
-  pixCode?: string | null;          // chave pix / copia e cola
-  qrCodeBase64?: string | null;     // imagem do qrcode em base64
-  amount?: number;
-  merchantName?: string;
-  merchantCnpj?: string;
-  onBack?: () => void;
+  pixCode: string;            // código copia e cola
+  qrCodeBase64: string;       // imagem do QR em base64
+  amount: number;             // valor do pedido
+  merchantName: string;
+  merchantCnpj: string;
+  onBack: () => void;
 }
 
 export default function PixPayment({
-  pixCode = "",
-  qrCodeBase64 = null,
+  pixCode,
+  qrCodeBase64,
   amount,
   merchantName,
   merchantCnpj,
-  onBack = () => {}
+  onBack
 }: PixPaymentProps) {
 
   const handleCopy = async () => {
     try {
-      if (!pixCode) return;
       await navigator.clipboard.writeText(pixCode);
-      // feedback simples
       alert("Código PIX copiado!");
     } catch (err) {
-      console.error(err);
+      console.error("Erro ao copiar PIX:", err);
       alert("Não foi possível copiar o código.");
     }
   };
 
   return (
     <div className="pix-container">
-      <h2 className="pix-title">Pague com Pix</h2>
 
-      {/* mostra o qr se tiver base64 */}
+      {/* TÍTULO */}
+      <h2 className="pix-title">Pagamento via Pix</h2>
+
+      {/* QR CODE */}
       {qrCodeBase64 ? (
         <img
           src={`data:image/png;base64,${qrCodeBase64}`}
@@ -44,51 +44,62 @@ export default function PixPayment({
           className="pix-qrcode"
         />
       ) : (
-        <div style={{ height: 160, display: "flex", alignItems: "center", justifyContent: "center", color: "#999" }}>
-          {/* placeholder */}
+        <div className="pix-qrcode pix-qrcode--placeholder">
           QR Code não disponível
         </div>
       )}
 
+      {/* MERCHANT */}
       <div className="pix-merchant">
-        <strong>{merchantName || "—"}</strong><br />
-        CNPJ: {merchantCnpj || "—"}
+        <strong>{merchantName}</strong><br />
+        CNPJ: {merchantCnpj}
       </div>
 
+      {/* VALOR */}
+      <p className="pix-amount">
+        Valor: <strong>R$ {amount.toFixed(2)}</strong>
+      </p>
+
+      {/* COPIA E COLA */}
       <textarea
         readOnly
         className="pix-code-box"
-        value={pixCode || ""}
+        value={pixCode}
       />
 
-      <button
-        className="pix-copy-btn"
-        onClick={handleCopy}
-      >
-        Copiar Código
+      <button className="pix-copy-btn" onClick={handleCopy}>
+        Copiar código Pix
       </button>
 
+      {/* INSTRUÇÕES */}
       <div className="pix-instructions">
         <p>Para realizar o pagamento siga os passos abaixo:</p>
         <ol>
-          <li>Abra o app ou o site da sua instituição financeira e selecione o Pix</li>
-          <li>Utilize as informações acima para realizar o pagamento</li>
-          <li>Revise as informações e pronto!</li>
+          <li>Abra o app do seu banco e escolha a opção <strong>Pix → Copia e Cola</strong>.</li>
+          <li>Cole o código Pix copiado.</li>
+          <li>Confirme os dados e finalize o pagamento.</li>
         </ol>
 
         <p className="pix-status">
-          Seu pedido está sendo processado pelo nosso parceiro de pagamentos.<br/>
-          Assim que recebermos a confirmação do pagamento os diamantes serão entregues automaticamente.
+          Estamos aguardando a confirmação do parceiro de pagamento.<br />
+          Assim que o pagamento for aprovado, os diamantes serão entregues automaticamente.
         </p>
 
-        <a href="https://customer.international.pagseguro.com/pt-br" target="_blank" rel="noreferrer">
-          https://customer.international.pagseguro.com/pt-br
+        <a
+          href="https://customer.international.pagseguro.com/pt-br"
+          target="_blank"
+          rel="noreferrer"
+          className="pix-help-link"
+        >
+          Suporte PagSeguro
         </a>
       </div>
 
+      {/* VOLTAR */}
       <button className="pix-back-btn" onClick={onBack}>
         Voltar
       </button>
+
     </div>
   );
 }
