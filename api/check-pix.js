@@ -3,10 +3,14 @@ export default async function handler(req, res) {
     return res.status(405).json({ error: "Método não permitido" });
   }
 
-  const { value, name, email, document } = req.body;
-
   try {
-    // PEGAR TOKEN
+    const { transactionId } = req.body;
+
+    if (!transactionId) {
+      return res.status(400).json({ error: "transactionId obrigatório" });
+    }
+
+    // token
     const auth = await fetch("https://api.syncpay.com.br/v1/oauth/token", {
       method: "POST",
       headers: {
@@ -22,28 +26,20 @@ export default async function handler(req, res) {
 
     const token = await auth.json();
 
-    // CRIAR PIX
-    const pix = await fetch("https://api.syncpay.com.br/v1/charges", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${token.access_token}`,
-      },
-      body: JSON.stringify({
-        amount: value,
-        payer: {
-          name,
-          email,
-          document,
+    // consultar PIX
+    const check = await fetch(
+      `https://api.syncpay.com.br/v1/charges/${transactionId}`,
+      {
+        headers: {
+          Authorization: `Bearer ${token.access_token}`,
         },
-      }),
-    });
+      }
+    );
 
-    const data = await pix.json();
+    const data = await check.json();
 
     return res.status(200).json(data);
   } catch (error) {
-    console.error(error);
-    return res.status(500).json({ error: "Erro ao gerar PIX" });
+    return res.status(500).json({ error: "Erro ao consultar PIX" });
   }
 }

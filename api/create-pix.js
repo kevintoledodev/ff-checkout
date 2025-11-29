@@ -7,71 +7,65 @@ export default async function handler(req, res) {
     const { value, name, email, document } = req.body;
 
     if (!value || !name || !email || !document) {
-      return res.status(400).json({ error: "Campos inválidos" });
+      return res.status(400).json({ error: "Campos faltando" });
     }
 
-    const CLIENT_ID = process.env.SYNC_CLIENT_ID;
-    const CLIENT_SECRET = process.env.SYNC_CLIENT_SECRET;
-    const API_BASE = process.env.SYNC_API_BASE || "https://api.syncpay.com.br";
+    // corrigir valores com vírgula
+    const amount = Math.round(Number(String(value).replace(",", ".")) * 100);
 
-    if (!CLIENT_ID || !CLIENT_SECRET) {
-      return res.status(500).json({ error: "Variáveis SyncPay ausentes" });
-    }
-
-    // 1) OBTER TOKEN
-    const tokenRes = await fetch(`${API_BASE}/oauth/token`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        client_id: CLIENT_ID,
-        client_secret: CLIENT_SECRET,
-        grant_type: "client_credentials"
-      })
-    });
-
-    const tokenData = await tokenRes.json();
-
-    if (!tokenData.access_token) {
-      console.error("ERRO AO OBTER TOKEN:", tokenData);
-      return res.status(500).json({ error: "Falha ao obter token SyncPay" });
-    }
-
-    const ACCESS_TOKEN = tokenData.access_token;
-
-    // 2) CRIAR PIX REAL
-    const pixRes = await fetch(`${API_BASE}/v1/charges`, {
+    // pegar token
+    const auth = await fetch("https://api.syncpay.com.br/v1/oauth/token", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${ACCESS_TOKEN}`
+        Authorization:
+          "Basic " +
+          Buffer.from(
+            `${process.env.SYNC_CLIENT_ID}:${process.env.SYNC_CLIENT_SECRET}`
+          ).toString("base64"),
+      },
+      body: JSON.stringify({ grant_type: "client_credentials" }),
+    });
+
+    const token = await auth.json();
+
+    if (!auth.ok) {
+      return res.status(400).json({ error: "Erro ao gerar token", detail: token });
+    }
+
+    // criar PIX
+    const pix = await fetch("https://api.syncpay.com.br/v1/charges", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token.access_token}`,
       },
       body: JSON.stringify({
-        amount: Number(value),
+        amount,
         payment_method: "pix",
         customer: {
           name,
           email,
-          document
-        }
-      })
+          document, // CPF sem pontos
+          type: "individual",
+        },
+      }),
     });
 
-    const pixData = await pixRes.json();
-    console.log("PIX DATA:", pixData);
+    const data = await pix.json();
 
-    if (pixData.error) {
-      return res.status(400).json({ error: pixData.error });
+    if (!pix.ok) {
+      return res.status(400).json({ error: data, message: "Erro ao criar PIX" });
     }
 
     return res.status(200).json({
-      chargeId: pixData.id,
-      qrCode: pixData.qrcode_base64,
-      copyPaste: pixData.qrcode_text,
-      status: pixData.status
+      qrCode: data.pix.qr_code,
+      copyPaste: data.pix.copy_paste,
+      transactionId: data.identifier,
+      expires_at: data.expires_at,
     });
-
-  } catch (error) {
-    console.error("Erro SyncPay:", error);
-    return res.status(500).json({ error: "Erro ao gerar PIX" });
+  } catch (err) {
+    console.log("ERRO CREATE PIX:", err);
+    return res.status(500).json({ error: "Erro interno" });
   }
 }
