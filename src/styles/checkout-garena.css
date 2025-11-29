@@ -1,0 +1,1342 @@
+
+@font-face {
+  font-family:Metropolis;
+  font-style:normal;
+  font-weight:100;
+  src:local("Metropolis Thin"),
+  url(/public/fonts/Metropolis-Thin-e87b67ad.woff2) format("woff2"),
+  url(/public/fonts/Metropolis-Thin-d4c2bfc3.woff) format("woff")
+}
+@font-face {
+  font-family:Metropolis;
+  font-style:italic;
+  font-weight:100;
+  src:local("Metropolis Thin Italic"),
+  url(/public/fonts/Metropolis-ThinItalic-f0ba6899.woff2) format("woff2"),
+  url(/public/fonts/Metropolis-ThinItalic-31ba4bb1.woff) format("woff")
+}
+@font-face {
+  font-family:Metropolis;
+  font-style:normal;
+  font-weight:200;
+  src:local("Metropolis Extra Light"),
+  url(/public/fonts/Metropolis-ExtraLight-56376682.woff2) format("woff2"),
+  url(/public/fonts/Metropolis-ExtraLight-0da5acea.woff) format("woff")
+}
+@font-face {
+  font-family:Metropolis;
+  font-style:italic;
+  font-weight:200;
+  src:local("Metropolis Extra Light Italic"),
+  url(/public/fonts/Metropolis-ExtraLightItalic-cb089003.woff2) format("woff2"),
+  url(/public/fonts/Metropolis-ExtraLightItalic-1f9daf9d.woff) format("woff")
+}
+@font-face {
+  font-family:Metropolis;
+  font-style:normal;
+  font-weight:300;
+  src:local("Metropolis Light"),
+  url(/public/fonts/Metropolis-Light-3664cf60.woff2) format("woff2"),
+  url(/public/fonts/Metropolis-Light-79b15696.woff) format("woff")
+}
+@font-face {
+  font-family:Metropolis;
+  font-style:italic;
+  font-weight:300;
+  src:local("Metropolis Light Italic"),
+  url(/public/fonts/Metropolis-LightItalic-c7ea8d33.woff2) format("woff2"),
+  url(/public/fonts/Metropolis-LightItalic-114d5afe.woff) format("woff")
+}
+@font-face {
+  font-family:Metropolis;
+  font-style:normal;
+  font-weight:400;
+  src:local("Metropolis Regular"),
+  url(/public/fonts/Metropolis-Regular-e920e6b0.woff2) format("woff2"),
+  url(/public/fonts/Metropolis-Regular-b19e8951.woff) format("woff")
+}
+@font-face {
+  font-family:Metropolis;
+  font-style:italic;
+  font-weight:400;
+  src:local("Metropolis Regular Italic"),
+  url(/public/fonts/Metropolis-RegularItalic-ccc6ad34.woff2) format("woff2"),
+  url(/public/fonts/Metropolis-RegularItalic-77f052dc.woff) format("woff")
+}
+@font-face {
+  font-family:Metropolis;
+  font-style:normal;
+  font-weight:500;
+  src:local("Metropolis Medium"),
+  url(/public/fonts/Metropolis-Medium-f3a73873.woff2) format("woff2"),
+  url(/public/fonts/Metropolis-Medium-91cf497b.woff) format("woff")
+}
+@font-face {
+  font-family:Metropolis;
+  font-style:italic;
+  font-weight:500;
+  src:local("Metropolis Medium Italic"),
+  url(/public/fonts/Metropolis-MediumItalic-f604beac.woff2) format("woff2"),
+  url(/public/fonts/Metropolis-MediumItalic-7ed18e53.woff) format("woff")
+}
+@font-face {
+  font-family:Metropolis;
+  font-style:normal;
+  font-weight:600;
+  src:local("Metropolis Semi Bold"),
+  url(/public/fonts/Metropolis-SemiBold-695870d1.woff2) format("woff2"),
+  url(/public/fonts/Metropolis-SemiBold-bd9cc6de.woff) format("woff")
+}
+@font-face {
+  font-family:Metropolis;
+  font-style:italic;
+  font-weight:600;
+  src:local("Metropolis Semi Bold Italic"),
+  url(/public/fonts/Metropolis-SemiBoldItalic-f08b947a.woff2) format("woff2"),
+  url(/public/fonts/Metropolis-SemiBoldItalic-5e65c493.woff) format("woff")
+}
+@font-face {
+  font-family:Metropolis;
+  font-style:normal;
+  font-weight:700;
+  src:local("Metropolis Bold"),
+  url(/public/fonts/Metropolis-Bold-9a712a2c.woff2) format("woff2"),
+  url(/public/fonts/Metropolis-Bold-cd1f8382.woff) format("woff")
+}
+@font-face {
+  font-family:Metropolis;
+  font-style:italic;
+  font-weight:700;
+  src:local("Metropolis Bold Italic"),
+  url(/public/fonts/Metropolis-BoldItalic-6f0a19e8.woff2) format("woff2"),
+  url(/public/fonts/Metropolis-BoldItalic-3f088a11.woff) format("woff")
+}
+@font-face {
+  font-family:Metropolis;
+  font-style:normal;
+  font-weight:800;
+  src:local("Metropolis Extra Bold"),
+  url(/public/fonts/Metropolis-ExtraBold-0c9ff630.woff2) format("woff2"),
+  url(/public/fonts/Metropolis-ExtraBold-f79c09f3.woff) format("woff")
+}
+@font-face {
+  font-family:Metropolis;
+  font-style:italic;
+  font-weight:800;
+  src:local("Metropolis Extra Bold Italic"),
+  url(/public/fonts/Metropolis-ExtraBoldItalic-8ef75318.woff2) format("woff2"),
+  url(/public/fonts/Metropolis-ExtraBoldItalic-b4e62ca3.woff) format("woff")
+}
+@font-face {
+  font-family:Metropolis;
+  font-style:normal;
+  font-weight:900;
+  src:local("Metropolis Black"),
+  url(/public/fonts/Metropolis-Black-bcd0ced5.woff2) format("woff2"),
+  url(/public/fonts/Metropolis-Black-ece44382.woff) format("woff")
+}
+@font-face {
+  font-family:Metropolis;
+  font-style:italic;
+  font-weight:900;
+  src:local("Metropolis Black Italic"),
+  url(/public/fonts/Metropolis-BlackItalic-fadeacd3.woff2) format("woff2"),
+  url(/public/fonts/Metropolis-BlackItalic-fc2225d4.woff) format("woff")
+}
+html, body{
+margin:0;
+padding:0;
+font-family: "Metropolis", sans-serif;
+background:#FFF;
+}
+ul{
+margin:0;
+padding:0;
+}
+ul li{
+padding:0;
+margin:0;
+list-style: none;
+font-family: "Metropolis", sans-serif;
+}
+img{
+max-width: 100%;
+height:auto;
+border:0;
+outline: 0;
+}
+button, input, a, select{
+outline: 0 !important;
+border:0;
+text-decoration: none;
+font-family: "Metropolis", sans-serif;
+}
+a, span, p, h1, h2, h3, h4, h5, h6, small{
+font-family: "Metropolis", sans-serif;
+}
+a{
+text-decoration:none;
+font-family: "Metropolis", sans-serif;
+}
+footer{
+background-color: #f5f5f5;
+padding: 35px 0 15px;
+}
+footer p{
+color: #131313;
+text-align: center;
+font-size: 14px;
+line-height: 2;
+margin: 0;
+}
+
+/* ================= SELEÇÃO DE JOGOS (ORIGINAL OFICIAL) ================= */
+
+.checkout-garena-wrapper .headline {
+  background-image: url("images/bg-headline.png");
+  background-size: cover;
+  background-position: center;
+  padding: 35px 0 50px;
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.checkout-garena-wrapper .headline h3 {
+  color: #000000;
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.checkout-garena-wrapper .jogos {
+  display: flex;
+  gap: 2px;
+}
+
+
+.checkout-garena-wrapper .jogo img {
+  width: 84px;
+  height: 84px;
+  border-radius: 12px;
+  object-fit: cover;
+  margin-bottom: 8px;
+}
+
+.checkout-garena-wrapper .jogo span {
+  font-size: 15px;
+  font-weight: 600;
+  color: #fff;
+}
+
+
+
+
+
+/* Checkout Garena - Réplica fiel do index2.html */
+
+.checkout-garena-wrapper {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  background-color: #ffffff;
+  color: #333;
+  line-height: 1.6;
+}
+
+.checkout-garena-wrapper * {
+  box-sizing: border-box;
+}
+
+/* Header */
+.checkout-garena-wrapper header.sticky {
+  background: #fff;
+  border-bottom: 4px solid #E6252A;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.checkout-garena-wrapper header .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 12px 16px;
+}
+
+.checkout-garena-wrapper header .d-flex {
+  display: flex;
+}
+
+.checkout-garena-wrapper header .align-items-center {
+  align-items: center;
+}
+
+.checkout-garena-wrapper header .justify-content-between {
+  justify-content: space-between;
+}
+
+.checkout-garena-wrapper header .border-e {
+  width: 1px;
+  height: 32px;
+  background: #ddd;
+  margin: 0 12px;
+}
+
+.checkout-garena-wrapper header .text {
+  font-size: 14px;
+  color: #666;
+  font-weight: 500;
+}
+
+.checkout-garena-wrapper header img {
+  max-height: 32px;
+}
+
+.checkout-garena-wrapper .d-block {
+  display: block !important;
+}
+
+.checkout-garena-wrapper .d-none {
+  display: none !important;
+}
+
+/* Banner Section */
+.checkout-garena-wrapper .banner {
+  position: relative;
+  background: #141414;
+  display: block;
+  z-index: 20000;
+}
+
+.checkout-garena-wrapper .banners {
+  position: relative;
+  max-width: 1290px;
+  height: 290px;
+  margin: 0 auto;
+
+}
+
+.checkout-garena-wrapper .list-banners {
+  width: 100%;
+  height: 50px;
+}
+
+.checkout-garena-wrapper .list-banners .item {
+  padding: 5px 10px;
+  overflow: hidden;
+  position: relative;
+  left: 20px;
+}
+
+.checkout-garena-wrapper .list-banners .item img {
+  border-radius: 25px;
+  display: inline;
+  z-index: 9000;
+  width: 100%;
+}
+
+.checkout-garena-wrapper .arrow-banner {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  background: rgba(22, 22, 22, 0.3);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 100;
+  transition: background 0.3s;
+}
+
+.checkout-garena-wrapper .arrow-banner:hover {
+  background: rgba(51, 51, 51, 0.5);
+}
+
+.checkout-garena-wrapper .arrow-banner.arrow-left {
+  left: 20px;
+}
+
+.checkout-garena-wrapper .arrow-banner.arrow-right {
+  right: 20px;
+}
+
+.checkout-garena-wrapper .arrow-banner svg {
+  width: 16px;
+  height: 16px;
+  color: #fff;
+}
+
+.checkout-garena-wrapper .overlay-banner {
+  position: absolute;
+  height: 100%;
+  width: 280px;
+  top: 0;
+}
+
+
+.checkout-garena-wrapper .overlay-left {
+  left: 0;
+  z-index: 10;
+  background: linear-gradient(90deg,  rgb(17, 16, 16) 0%, rgba(6, 6, 6, 0) 100%);
+}
+
+.checkout-garena-wrapper .overlay-right {
+  right: 0;
+  z-index: 10;
+  background: linear-gradient(-90deg, rgba(21, 21, 21, 1) 0%, rgba(21, 21, 21, 0) 100%);
+}
+
+/* Headline Section */
+.checkout-garena-wrapper .headline {
+  position: relative;
+  background: linear-gradient(135deg, #ffffff 0%, #d7d7d7 100%);
+  padding: 24px 0;
+  width: 100%;
+}
+
+.checkout-garena-wrapper .headline .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+  pointer-events: none;
+  
+}
+
+.checkout-garena-wrapper .headline .overlay img {
+  width: 100%;
+  height: 13%;
+  object-fit: cover;
+  opacity: 1;
+  
+}
+
+.checkout-garena-wrapper .headline .overlay-l,
+.checkout-garena-wrapper .headline .overlay-r {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 600px;
+  z-index: 1;
+}
+
+.checkout-garena-wrapper .headline .overlay-l {
+  left: 0;
+  width: 1070px;
+  background: linear-gradient(90deg, #ffc80000 0%, transparent 100%);
+}
+
+.checkout-garena-wrapper .headline .overlay-r {
+  right: 0;
+  background: linear-gradient(270deg, #ffdd0070 0%, transparent 100%);
+}
+
+.checkout-garena-wrapper .headline .container {
+  position: relative;
+  z-index: 2;
+  margin: 0 auto;
+  padding: 0 16px;
+  width: 100%;
+}
+
+.checkout-garena-wrapper .headline h3 {
+  font-size: 20px;
+  font-weight: bold;
+  color: #000000;
+  margin-bottom: 16px;
+  position: relative;
+  left: 280px;
+}
+
+.checkout-garena-wrapper .jogos {
+  display: flex;
+  gap: 16px;
+  margin-left: 300px;
+}
+
+
+
+
+.checkout-garena-wrapper .jogo span {
+  font-size: 14px;
+  font-weight: 600;
+  color: #000000;
+  text-align: center;
+}
+
+
+
+
+
+/* Body Section */
+.checkout-garena-wrapper .body {
+  padding: 24px 0;
+}
+
+.checkout-garena-wrapper .body .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+/* Banner FF */
+.checkout-garena-wrapper .banner-ff {
+  background-image: url(images/FF-f997537d.jpg);
+  border-radius: 12px;
+  padding: 20px;
+  margin-left: -18px;
+  margin-bottom: 16px;
+}
+
+.checkout-garena-wrapper .banner-ff .info-jogo {
+  display: flex;
+  align-items: center;
+
+}
+
+.checkout-garena-wrapper .banner-ff .image img {
+  width: 62px;
+  height: 62px;
+  border-radius: 12px;
+  margin-top: 10px;
+}
+
+.checkout-garena-wrapper .banner-ff .text h2 {
+  color: #fff;
+  font-size: 20px;
+  font-weight: bold;
+  margin: 0 0 4px 0;
+}
+
+.checkout-garena-wrapper .banner-ff .text span {
+  color: rgba(255,255,255,0.9);
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Item Gratis */
+.checkout-garena-wrapper .item-gratis {
+  width: 469px;
+  height: 130px;
+  border-radius: 7px;
+  padding: 20px;
+ 
+  background-image: url(images/freefire-freeitem-bg-light-3457641a.png);
+}
+
+.checkout-garena-wrapper .item-gratis .content-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.checkout-garena-wrapper .item-gratis .item h3 {
+  font-size: 18px;
+  font-weight: bold;
+  color: #000000;
+  margin: 0 0 8px 0;
+}
+
+.checkout-garena-wrapper .item-gratis .item p {
+  font-size: 14px;
+  color: #555;
+  margin: 0 0 12px 0;
+}
+
+
+.checkout-garena-wrapper .btn-gratis:hover {
+  background: #F57C00;
+}
+
+.checkout-garena-wrapper .item-gratis .icone {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  gap: 8px;
+}
+
+.checkout-garena-wrapper .item-gratis .icone img {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  margin-top: -10px;
+}
+
+.checkout-garena-wrapper .item-gratis .icone span {
+  font-size: 12px;
+  color: #666;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  
+  gap: 4px;
+}
+
+/* Eventos Especiais */
+.checkout-garena-wrapper .eventos-especiais {
+  width: 464px;
+  height: 130px;
+  margin-top: -70px;
+  border-radius: 7px;
+  padding: 20px;
+  object-fit: cover;
+  background-color: #000000;
+
+}
+
+.event-img  {
+  width: 464px !important;
+  height: 130px;
+  position: relative;
+  bottom: -60px;
+  right: 0px;
+  border-radius: 7px;
+
+}
+
+.event-span  {
+  position: relative;
+  bottom: -10px;
+  margin-bottom: 20px;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+
+
+.checkout-garena-wrapper .eventos-especiais .evento h3 {
+  font-size: 22px;
+  font-weight: 600;
+  color: #000000;
+  
+  position: relative;
+  bottom: 60px;
+  
+  right: 20px;
+}
+
+
+/* Login Area */
+.checkout-garena-wrapper .login-area {
+  margin-top: 44px;
+}
+
+.checkout-garena-wrapper .title-section {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+
+.checkout-garena-wrapper .title-section span {
+  width: 25px;
+  height: 25px;
+  background: #cf0007;
+  color: #fff;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 15px;
+  flex-shrink: 0;
+}
+
+.checkout-garena-wrapper .title-section h2 {
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+  margin: 0;
+}
+
+/* Box Login */
+.checkout-garena-wrapper .box-login {
+  background: #f4f4f4;  
+  width: 464px;
+  height: 168px;
+  border-radius: 5px;
+  padding: 24px;
+  margin-bottom: 16px;
+}
+
+.checkout-garena-wrapper .box-login .content h3 {
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+  margin: 0 0 12px 0;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.checkout-garena-wrapper .form-login {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+
+.checkout-garena-wrapper .input-id {
+  flex: 1;
+  min-width: 200px;
+  padding: 12px 16px;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 14px;
+  transition: border-color 0.3s;
+}
+
+.checkout-garena-wrapper .input-id:focus {
+  outline: none;
+  border-color: #E6252A;
+}
+
+.checkout-garena-wrapper .btn-login {
+  background: #cf0007;
+  color: #fff;
+  border: none;
+  padding: px 28px;
+  border-radius: 8px;
+  font-size: 14px;
+  position: absolute;
+  right: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.checkout-garena-wrapper .btn-login:hover {
+  background: #c91f24;
+}
+
+.checkout-garena-wrapper .messageSection {
+  font-size: 13px;
+  color: #E6252A;
+  margin-top: -5px;
+  margin-left: -2px;
+}
+
+.checkout-garena-wrapper .loader {
+  display: none;
+  width: 40px;
+  height: 40px;
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #E6252A;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 20px auto;
+}
+
+/* Valor Recarga Area */
+
+/* ================================
+   BOTÕES COMPRAR / RESGATAR
+================================ */
+.buy-redeem-buttons {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.buy-redeem-buttons button {
+  padding: 4px 19px;
+  border-radius: 22px;
+  border: 2px solid #d9d9d9;
+  background: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: .2s;
+}
+
+/* Comprar ativo */
+.btn-buy.active {
+  background: #e5383521;
+  color: #ff0000;
+  border-color: #e53935;
+}
+
+/* Resgatar desativado */
+.btn-redeem.disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* ================================
+   DIAMOND CARDS
+================================ */
+.diamonds-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 18px;
+}
+
+.diamond-card {
+  display: inline;
+  background: #ffffff;
+  border: 2px solid #e7e7e7;
+  border-radius: 6px;
+  padding: 16px;
+  text-align: center;
+  transition: .2s;
+}
+
+/* Desativado */
+.diamond-card.disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+/* ATIVO / SELECIONADO */
+.diamond-card.active {
+  border-color: #e53935;
+  box-shadow: 0 0 10px rgba(229, 57, 53, 0.35);
+  cursor: pointer;
+}
+
+.diamond-card .diamond-icon img{
+  display: inline;
+  width: 15px;
+  margin-right: 7px;
+}
+
+.diamond-card .diamond-value {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+/* Reduz a margem entre os diamantes e "Ofertas especiais" */
+.ofertas-title {
+  margin-top: 10px !important;
+  margin-bottom: 8px !important;
+  display: flex;
+  align-items: center;
+  color: #666;
+  font-size: 17px;
+  font-weight: 600;
+}
+
+/* Linha ao lado do texto (igual ao site original) */
+.ofertas-title::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: #e5e5e5;
+  margin-left: 10px;
+}
+
+/* GRID DAS OFERTAS – margem menor */
+.offers-grid {
+  margin-top: 15px !important;
+}
+
+
+/* GRID DAS OFERTAS */
+.offers-grid {
+  text-align: center;
+  
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 10px;
+  margin-top: 40px;
+}
+
+/* CARD */
+.offer-card {
+  background: transparent;
+  border: 1px solid #afafaf;
+  width: 230px;
+  height: 190px;
+  border-radius: 8px;
+  padding: 22px;
+  box-shadow: 0 5px 12px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+  position: relative;
+  align-items: center;
+}
+
+/* IMG */
+.offer-card img {
+  width: 320px;
+  
+  margin-bottom: 20px;
+}
+
+/* INFO */
+.offer-info {
+  display: inline;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+}
+
+/* TÍTULO */
+.offer-info span {
+  
+  font-size: 12px;
+  font-weight: 500;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  color: #383838;
+}
+
+/* BOTÃO INFO (ícone de i) */
+.info-btn {
+  background: transparent;
+  border: none;
+  font-size: 14px;
+  color: #ff0000;
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 50%;
+  transition: 0.2s;
+  
+}
+
+.info-btn:hover {
+  background: rgba(0, 0, 0, 0.06);
+  color: #000;
+}
+
+/* Melhorando toque no celular */
+.info-btn:active {
+  transform: scale(0.9);
+}
+
+/* MODAL OVERLAY */
+.offer-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.591);
+  backdrop-filter: blur(9px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  animation: showModal 0.10s ease;
+}
+
+
+
+/* MODAL ANIMATION */
+@keyframes showModal {
+  from {
+    opacity: 0;
+    transform: scale(0.85);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* MODAL IMAGE */
+.modal-content img {
+  width: 290px;
+  margin-left: 10px;
+  height: auto;
+  margin-bottom: 14px;
+}
+
+/* MODAL IMAGE */
+.modal-content {
+  width: 350px !important;
+  height: 400px;
+}
+
+/* MODAL TITLE */
+.modal-content h2 {
+  font-size: 20px;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+/* MODAL TEXT */
+.modal-content p {
+  font-size: 14px;
+  font-weight: 300;
+  text-align: center;
+  color: #807e7e;
+  margin-bottom: 20px;
+}
+
+/* BUTTON */
+.close-btn {
+  width: 100%;
+  background: #ff4040;
+  border: none;
+  color: #fff;
+  padding: 12px 0;
+  font-size: 17px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.close-btn:hover {
+  background: #e33737;
+}
+
+
+
+/* Metodo Pagemento Area*/
+
+
+.payment-area .title-section {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.payment-area .title-section span {
+  background: #cf0007;
+  color: #fff;
+  font-weight: bold;
+  width: 25px;
+  height: 25px;
+  border-radius: 3px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Texto de explicação */
+.payment-info {
+  margin-bottom: 20px;
+  font-size: 16px;
+  color: #5e5e5e;
+  line-height: 1.6;
+}
+
+.payment-info p {
+  margin: 3px 0;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+/* Ícone do texto */
+.payment-info svg {
+  width: 20px;
+  height: 20px;
+
+}
+.payment-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.payment-card {
+  position: relative;
+  width: -100px;
+  background: #fff;
+  border-radius: 7px;
+  padding: 25px;
+  height: 100px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  max-width: 450px;
+ 
+
+  border: 3px solid transparent;
+  transition: 0.2s ease;
+}
+
+.payment-card img {
+  max-height: 90px;
+  object-fit: contain;
+  justify-content: left;
+  right: 80px;
+  position: relative;
+}
+
+/* PIX – ACTIVE */
+.payment-card.active {
+  border-color: #ff0000;
+  opacity: 1;
+}
+
+/* Outras formas – DESATIVADO */
+.payment-card.disabled {
+  opacity: 0.35;
+  border-color: #444444;
+}
+
+/* Tag PROMO */
+.promo-tag {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  background: #d33;
+  border: 2px solid #9f1d1d;
+  padding: 2px 6px;
+  font-size: 11px;
+  font-weight: bold;
+  color: white;
+  border-radius: 4px;
+}
+
+.promo-tag img{
+  display: inline;
+  width: 14px;
+  height: 15px;
+  padding: 2px;
+  background-color: #ffffff;
+  position: relative;
+  left: -1px;
+  border-radius: 3px;
+}
+
+/* PIX tem tag mais forte */
+.promo-tag.active {
+  background: #ff0000;
+  border-color: #a50000;
+}
+
+
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.checkout-garena-wrapper .social {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 16px;
+
+  position: absolute;
+  gap: 12px;
+  bottom: 20px;
+  flex-wrap: wrap;
+
+}
+
+.checkout-garena-wrapper .social span {
+
+  font-size: 13px;
+  color: #666;
+}
+
+.checkout-garena-wrapper .redes {
+  display: flex;
+  top: 30px;
+  margin-left: 30px;
+  gap: 1px;
+  align-items: end;
+}
+
+.checkout-garena-wrapper .redes a {
+  display: inline-block;
+  transition: opacity 0.3s;
+}
+
+.checkout-garena-wrapper .redes a:hover {
+  opacity: 0.7;
+}
+
+.checkout-garena-wrapper .redes img {
+  width: 32px;
+  height: 32px;
+}
+
+/* Login Note */
+.checkout-garena-wrapper .login-note {
+  background: #ffffff00;
+  border: 2px solid #e0e0e000;
+  border-radius: 12px;
+  font-size: 22px;
+  padding: 16px;
+}
+
+/* Box Diamantes */
+.checkout-garena-wrapper .box-diamantes {
+  background: #fff4f4;
+  border: 3px solid #E6252A;
+  border-radius: 8px;
+  padding: 20px;
+  text-align: left;
+  justify-content: left;
+  align-items: start;
+}
+
+
+.checkout-garena-wrapper .box-diamantes .content span {
+  display: block;
+  font-weight: 600;
+  color: #0062ff;
+}
+
+.checkout-garena-wrapper .box-diamantes .content h3 {
+  margin: 2px 0 0 0;
+  font-size: 17px;
+  font-weight: 500;
+  color: #222222;
+  display: flex;
+  align-items: left;
+  justify-content: left;
+  gap: 8px;
+}
+
+/* Footer */
+.checkout-garena-wrapper .footer {
+  background: #ffffff;
+  padding: 24px 0;
+  border-top: 1px solid #e0e0e0;
+}
+
+.checkout-garena-wrapper .footer .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+.checkout-garena-wrapper .content-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.checkout-garena-wrapper .content-footer span {
+  font-size: 12px;
+  color: #666;
+}
+
+.checkout-garena-wrapper .links-footer {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.checkout-garena-wrapper .links-footer a {
+  font-size: 12px;
+  color: #666;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.checkout-garena-wrapper .links-footer a:hover {
+  color: #E6252A;
+}
+
+
+/* Responsive */
+@media (max-width: 768px) {
+  .checkout-garena-wrapper .d-lg-block {
+    display: none !important;
+  }
+
+  .checkout-garena-wrapper .d-lg-none {
+    display: block !important;
+  }
+
+  .checkout-garena-wrapper .item-gratis .content-item {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .checkout-garena-wrapper .form-login {
+    flex-direction: column;
+  }
+
+  .checkout-garena-wrapper .input-id {
+    width: 100%;
+  }
+
+  .checkout-garena-wrapper .btn-login {
+    width: 100%;
+  }
+
+  .checkout-garena-wrapper .social {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .checkout-garena-wrapper .content-footer {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .checkout-garena-wrapper .links-footer {
+    flex-direction: column;
+    gap: 12px;
+  }
+}
+
+@media (min-width: 769px) {
+  .checkout-garena-wrapper .d-xl-block {
+    display: block !important;
+  }
+
+  .checkout-garena-wrapper .d-xl-none {
+    display: none !important;
+  }
+
+  .checkout-garena-wrapper .list-banners .item {
+    height: 250px;
+  }
+}
+
+/* Utility Classes */
+.checkout-garena-wrapper .w-100 {
+  width: 100%;
+}
+
+.checkout-garena-wrapper .text-center {
+  text-align: center;
+}
+
+.checkout-garena-wrapper .justify-content-center {
+  justify-content: center;
+}
+
+/* Slick Carousel Overrides */
+.checkout-garena-wrapper .slick-dots {
+  bottom: 10px;
+  position: absolute;
+  top: 280px;
+  display: none;
+}
+
+.checkout-garena-wrapper .slick-dots li button:before {
+  color: #fff;
+  opacity: 0.5;
+  display: none;
+}
+
+.checkout-garena-wrapper .slick-dots li.slick-active button:before {
+  color: #ff0008;
+  opacity: 1;
+
+}
+
+.checkout-garena-wrapper .-scale-x-100 {
+  transform: scaleX(-1);
+}
+
+.checkout-garena-wrapper .scale-x-100 {
+  transform: scaleX(1);
+}
+
+

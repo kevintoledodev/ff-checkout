@@ -1,0 +1,638 @@
+
+
+
+
+
+.background-ff {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;        /* cobre toda a tela lindamente */
+  object-position: center;  /* centraliza */          
+  opacity: 1;            /* igual estilo Free Fire */
+  pointer-events: none;     /* não bloqueia cliques */
+}
+
+
+/* Header */
+header.sticky-alt {
+  background: #fff;
+  width: 900px;
+  border-bottom: 4px solid #E6252A;
+   position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  object-fit: cover;        /* cobre toda a tela lindamente */
+  object-position: center;  /* centraliza */          
+  opacity: 1;            /* igual estilo Free Fire */
+  pointer-events: none;     /* não bloqueia cliques */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+header .container-alt {
+  max-width: 1200px;
+  margin: 0 auto;
+
+  padding: 12px 16px;
+}
+
+
+.flex-alt {
+  display: flex;
+}
+
+.align-center-alt {
+  align-items: center;
+}
+
+.justify-between-alt {
+  justify-content: space-between;
+}
+
+.divider-alt {
+  width: 1px;
+  height: 32px;
+  background: #ddd;
+  margin: 0 12px;
+}
+
+.header-text-alt {
+  font-size: 14px;
+  color: #666;
+  font-weight: 500;
+}
+
+header img {
+  max-height: 32px;
+}
+
+/* display helpers */
+.block-alt {
+  display: block !important;
+}
+
+.none-alt {
+  display: none !important;
+}
+
+/* breakpoints */
+.show-mobile-alt {
+  display: block;
+}
+
+.show-desktop-alt {
+  display: none;
+}
+
+@media (min-width: 992px) {
+  .show-mobile-alt {
+    display: none !important;
+  }
+  .show-desktop-alt {
+    display: block !important;
+  }
+}
+
+
+
+/* ---- background geral (imagem local do container) ---- */
+.ff-background {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  
+  min-height: 100px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  left: 200px;
+  position: relative;
+  border-radius: 8px;
+
+}
+
+
+/* container central */
+.container.main-content.ff-main {
+
+  padding: 20px 0;
+  border-radius: 8px;
+}
+
+/* Grid principal do checkout: card central + sidebar */
+.ff-checkout-grid {
+  display: grid;
+  grid-template-columns: 760px 360px;
+  /* largura parecida com o oficial */
+  gap: 26px;
+  justify-content: center;
+  width: 100%;
+  max-width: 100%;
+
+  /* ou 100%, ou o valor que quiser */
+
+  margin: 0 auto 60px;
+  align-items: start;
+
+}
+
+.ff-card {
+  max-width: 100%;
+  width: 100%;
+  /* antes era 560px */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+  border-radius: 8px;
+  background: #fff;
+  padding: 14px;
+}
+
+/* botão voltar dentro do card */
+.ff-back-btn {
+  position: absolute;
+  top: 50px;
+  left: -290px;
+  background: rgba(0, 0, 0, 0.296);
+  border: 2px solid rgba(255, 255, 255, 0.795);
+  padding: 5px 10px;
+  border-radius: 20px;
+  color: white;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.ff-back-btn svg {
+  display: inline;
+  width: 19px;
+  height: 15px;
+  font-size: 20px;
+}
+
+/* Banner superior */
+.ff-card-top {
+  padding: 18px;
+  background: linear-gradient(180deg, #fff, #fff);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.ff-banner {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.ff-banner img {
+  margin-top: -26px;
+  width: 107%;
+  max-width: 1900px;
+  /* igual ao da Garena */
+  border-radius: 8px;
+}
+
+
+/* jogo ícone */
+.ff-game-icon {
+  margin-top: -30px;
+  width: 79px;
+  height: 80px;
+  border-radius: 12px;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+  border: 4px solid #fff;
+}
+
+.ff-game-icon img {
+  width: 70px;
+  height: 70px;
+  object-fit: contain;
+}
+
+/* título do jogo */
+.ff-game-title {
+  margin-top: 10px;
+  font-size: 20px;
+  font-weight: 700;
+  text-align: center;
+  color: #333;
+}
+
+/* Totais e breakdown */
+
+.ff-totals {
+  padding: 18px;
+  border-top: 1px solid #eee;
+}
+
+
+.ff-total-line {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 400;
+  margin-bottom: 10px;
+}
+
+.ff-breakdown {
+  background: #fafafa;
+  padding: 9px;
+  margin: 0 auto;
+  border: 1px solid rgba(197, 197, 197, 0.49);
+  border-radius: 5px;
+}
+
+.ff-breakdown .item {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 0;
+  color: #666;
+  font-size: 14px;
+
+}
+
+.ff-breakdown .item img{
+  width: 13px;
+  display: inline;
+
+}
+
+.ff-note {
+  color: #888;
+  font-size: 13px;
+  margin-top: 10px;
+}
+
+/* info rows */
+.ff-info-rows {
+  margin-top: 12px;
+  border-top: 1px solid #f1f1f1;
+  padding-top: 12px;
+}
+
+.ff-info-rows .row {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  color: #010101;
+  font-weight: 330;
+  font-size: 16px;
+}
+
+/* form section dentro do cartão */
+.ff-form-section.card {
+  padding: 18px;
+  border-top: 1px solid #eee;
+  background: transparent;
+}
+
+/* campos simples - replica o estilo dos seus componentes internos */
+.ff-field {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.ff-field label {
+  min-width: 140px;
+  font-size: 14px;
+  color: #666;
+}
+
+.ff-field input {
+  flex: 1;
+  padding: 10px 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+
+.btn-aplicar {
+  padding: 12px 20px;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+.btn-aplicar.inativo {
+  background: #ff0008;
+  opacity: 0.4;
+  cursor: default;
+}
+
+.btn-aplicar.ativo {
+  background: #e6252a;
+  opacity: 1;
+  cursor: pointer;
+}
+
+
+
+
+/* ações do form */
+.ff-form-actions {
+  margin-top: 16px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.btn-primary {
+  width: 100%;
+  padding: 12px 16px;
+  background: #eaa9a9;
+  border: none;
+  color: #fff;
+  border-radius: 6px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.btn-primary.disabled {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+/* sidebar direita */
+.ff-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* cards dentro da sidebar */
+.card {
+  margin-top: 20px;
+  background: #fff;
+  border-radius: 0px;
+  padding: 1px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+}
+
+/* titulo de seção */
+.section-title {
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+
+
+
+/* Checkout */
+
+.checkout-form {
+  background: #fff;
+  padding: 25px;
+  
+  border-radius: 10px;
+  max-width: 1000px;
+  width: 100%;
+  margin: auto;
+}
+
+.section-title {
+  margin-top: 28px;
+  margin-bottom: 10px;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+}
+
+.input-group label {
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+.input-group input,
+.input-group select {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #dcdcdc;
+  border-radius: 6px;
+  background: #fafafa;
+}
+
+.input-group small {
+  font-size: 11px;
+  margin-top: 4px;
+  color: #555;
+}
+
+.two-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+/* Cupom */
+.cupom-area label {
+  font-weight: 600;
+}
+
+.cupom-box {
+  display: flex;
+  gap: 10px;
+  margin-top: 6px;
+}
+
+.cupom-box input {
+  flex: 1;
+  background: #fafafa;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 10px;
+}
+
+.cupom-box button {
+  background: #e98f90;
+  padding: 10px 18px;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  margin-right: 0px;
+  color: white;
+}
+
+.legend {
+  margin-top: 6px;
+  font-size: 12px;
+  color: #888;
+}
+
+.error-text {
+  color: #d9534f;
+  font-size: 13px;
+  margin-top: 4px;
+}
+
+.error-text-cpf {
+  color: #d9534f;
+  font-size: 13px;
+  position: relative;
+  bottom: 105px
+  
+}
+
+.error-text-data {
+  color: #d9534f;
+  font-size: 13px;
+  position: relative;
+  bottom: 14px;
+  left: 355px;
+}
+
+
+/* Botão principal */
+.pay-button {
+  width: 100%;
+  margin-top: 20px;
+  padding: 14px;
+  background: #ff0004;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.pay-button.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.pay-button.active {
+  opacity: 1;
+  cursor: pointer;
+}
+
+
+/* Footer */
+.checkout-footer {
+  background: #f6f6f6;
+
+  border-top: 1px solid #e5e5e5;
+  position: fixed;
+  top: 990px;
+  left: 0;
+  width: 100%;
+  
+  object-fit: cover;        /* cobre toda a tela lindamente */
+  object-position: center;  /* centraliza */          
+  opacity: 1;            /* igual estilo Free Fire */
+  pointer-events: none;     /* não bloqueia cliques */
+}
+
+.checkout-footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 16px;
+  
+}
+
+.checkout-footer-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.checkout-footer-content span {
+  font-size: 12px;
+  color: #666;
+}
+
+.checkout-footer-links {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.checkout-footer-links .divider {
+  color: #999;
+  font-size: 12px;
+  margin: 0 4px;
+}
+
+.checkout-footer-links a {
+  font-size: 12px;
+  color: #666;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.checkout-footer-links a:hover {
+  color: #ff0008;
+}
+
+
+.ff-pix-container {
+  grid-column: 1 / -1; /* ocupa TODAS as colunas do grid */
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
+.ff-card {
+  display: block;
+}
+
+.ff-pix-container {
+  display: flex;
+}
+
+.ff-checkout-grid.show-pix .ff-card {
+  display: none !important;
+}
+
+
+/* responsividade */
+@media (max-width: 1180px) {
+  .ff-checkout-grid {
+    grid-template-columns: 1fr;
+    padding: 0 18px;
+    max-width: 760px;
+  }
+
+  .ff-sidebar {
+    order: 2;
+  }
+
+  .ff-card {
+    order: 1;
+    margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .ff-banner img {
+    max-height: 90px;
+  }
+
+  .ff-game-icon {
+    width: 64px;
+    height: 64px;
+    margin-top: -22px;
+  }
+
+  .ff-checkout-grid {
+    padding: 0 12px;
+  }
+}
