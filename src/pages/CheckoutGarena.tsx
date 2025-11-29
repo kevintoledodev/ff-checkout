@@ -193,18 +193,18 @@ export default function Login({ onGoToCheckoutPage }: LoginProps) {
               <a href="/" className="d-flex align-items-center">
                 <div className="d-flex align-items-center">
                   <img
-                    src="images/logo-mobile.svg"
+                    src="/images/logo-mobile.svg"
                     alt="Garena"
                     className="d-block d-lg-none d-xl-none"
                   />
-                  <img src="images/logo.svg" alt="Garena" className="d-none d-lg-block d-xl-block" />
+                  <img src="/images/logo.svg" alt="Garena" className="d-none d-lg-block d-xl-block" />
                   <div className="border-e"></div>
                 </div>
                 <div className="text">Canal Oficial de Recarga</div>
               </a>
 
               <div className="d-flex align-items-center justify-content-center">
-                <img src="images/avatar.svg" alt="Player Avatar" width={30} style={{ borderRadius: "50%" }} />
+                <img src="/images/avatar.svg" alt="Player Avatar" width={30} style={{ borderRadius: "50%" }} />
               </div>
             </div>
           </div>
@@ -214,13 +214,13 @@ export default function Login({ onGoToCheckoutPage }: LoginProps) {
           <div className="banners">
             <div className="list-banners">
               <div className="item">
-                <img src="images/banner.png" alt="Free Fire" />
+                <img src="/images/banner.png" alt="Free Fire" />
               </div>
               <div className="item">
-                <img src="images/banner_02.png" alt="Free Fire" />
+                <img src="/images/banner_02.png" alt="Free Fire" />
               </div>
               <div className="item">
-                <img src="images/banner_03.png" alt="Free Fire" />
+                <img src="/images/banner_03.png" alt="Free Fire" />
               </div>
             </div>
             <div className="arrow-banner arrow-left">
@@ -242,19 +242,19 @@ export default function Login({ onGoToCheckoutPage }: LoginProps) {
         <div className="headline">
           <div className="overlay">
             <div className="overlay-l"></div>
-            <img src="images/cover.svg" alt="FreeFire" className="d-none d-lg-block d-xl-block" />
-            <img src="images/cover-mobile.svg" alt="FreeFire" className="d-block d-lg-none d-xl-none" />
+            <img src="/images/cover.svg" alt="FreeFire" className="d-none d-lg-block d-xl-block" />
+            <img src="/images/cover-mobile.svg" alt="FreeFire" className="d-block d-lg-none d-xl-none" />
             <div className="overlay-r"></div>
           </div>
           <div className="container">
             <h3>Seleção de jogos</h3>
             <div className="jogos d-flex align-items-center">
               <div className="jogo active">
-                <img src="images/icon.png" alt="Free Fire" />
+                <img src="/images/icon.png" alt="Free Fire" />
                 <span>Free Fire</span>
               </div>
               <div className="jogo disabled">
-                <img src="images/icon_c.png" alt="Delta Force" />
+                <img src="/images/icon_c.png" alt="Delta Force" />
                 <span>Delta Force</span>
               </div>
               <div className="jogo disabled">
@@ -280,7 +280,7 @@ export default function Login({ onGoToCheckoutPage }: LoginProps) {
               <div className="banner-ff">
                 <div className="info-jogo">
                   <div className="image">
-                    <img src="images/icon.png" alt="Compra 100% segura" />
+                    <img src="/images/icon.png" alt="Compra 100% segura" />
                   </div>
                   <div className="text">
                     <h2>Free Fire</h2>
@@ -302,7 +302,7 @@ export default function Login({ onGoToCheckoutPage }: LoginProps) {
 
                 <div className="icone">
                   <img
-                    src="images/pacote-armas.png"
+                    src="/images/pacote-armas.png"
                     alt="Pacote de Armas Armadura Aprimorada"
                     title="Pacote de Armas Armadura Aprimorada"
                   />
@@ -360,10 +360,10 @@ export default function Login({ onGoToCheckoutPage }: LoginProps) {
                   <div className="social d-flex align-items-center justify-content-between">
                     <span>Ou entre com sua conta de jogo</span>
                     <div className="redes d-flex align-items-center">
-                      <a href="#"><img src="images/ic-fb-485c92b0.svg" alt="Facebook" /></a>
-                      <a href="#"><img src="images/ic-google-d2ceaa95.svg" alt="Google Play" /></a>
-                      <a href="#"><img src="images/ic-twitter-92527e61.svg" alt="Twitter" /></a>
-                      <a href="#"><img src="images/ic-vk-abadf989.svg" alt="VK" /></a>
+                      <a href="#"><img src="/images/ic-fb-485c92b0.svg" alt="Facebook" /></a>
+                      <a href="#"><img src="/images/ic-google-d2ceaa95.svg" alt="Google Play" /></a>
+                      <a href="#"><img src="/images/ic-twitter-92527e61.svg" alt="Twitter" /></a>
+                      <a href="#"><img src="/images/ic-vk-abadf989.svg" alt="VK" /></a>
                     </div>
                   </div>
 

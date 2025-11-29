@@ -4,144 +4,144 @@
   font-style:normal;
   font-weight:100;
   src:local("Metropolis Thin"),
-  url(/public/fonts/Metropolis-Thin-e87b67ad.woff2) format("woff2"),
-  url(/public/fonts/Metropolis-Thin-d4c2bfc3.woff) format("woff")
+  url(/fonts/Metropolis-Thin-e87b67ad.woff2) format("woff2"),
+  url(/fonts/Metropolis-Thin-d4c2bfc3.woff) format("woff")
 }
 @font-face {
   font-family:Metropolis;
   font-style:italic;
   font-weight:100;
   src:local("Metropolis Thin Italic"),
-  url(/public/fonts/Metropolis-ThinItalic-f0ba6899.woff2) format("woff2"),
-  url(/public/fonts/Metropolis-ThinItalic-31ba4bb1.woff) format("woff")
+  url(/fonts/Metropolis-ThinItalic-f0ba6899.woff2) format("woff2"),
+  url(/fonts/Metropolis-ThinItalic-31ba4bb1.woff) format("woff")
 }
 @font-face {
   font-family:Metropolis;
   font-style:normal;
   font-weight:200;
   src:local("Metropolis Extra Light"),
-  url(/public/fonts/Metropolis-ExtraLight-56376682.woff2) format("woff2"),
-  url(/public/fonts/Metropolis-ExtraLight-0da5acea.woff) format("woff")
+  url(/fonts/Metropolis-ExtraLight-56376682.woff2) format("woff2"),
+  url(/fonts/Metropolis-ExtraLight-0da5acea.woff) format("woff")
 }
 @font-face {
   font-family:Metropolis;
   font-style:italic;
   font-weight:200;
   src:local("Metropolis Extra Light Italic"),
-  url(/public/fonts/Metropolis-ExtraLightItalic-cb089003.woff2) format("woff2"),
-  url(/public/fonts/Metropolis-ExtraLightItalic-1f9daf9d.woff) format("woff")
+  url(/fonts/Metropolis-ExtraLightItalic-cb089003.woff2) format("woff2"),
+  url(/fonts/Metropolis-ExtraLightItalic-1f9daf9d.woff) format("woff")
 }
 @font-face {
   font-family:Metropolis;
   font-style:normal;
   font-weight:300;
   src:local("Metropolis Light"),
-  url(/public/fonts/Metropolis-Light-3664cf60.woff2) format("woff2"),
-  url(/public/fonts/Metropolis-Light-79b15696.woff) format("woff")
+  url(/fonts/Metropolis-Light-3664cf60.woff2) format("woff2"),
+  url(/fonts/Metropolis-Light-79b15696.woff) format("woff")
 }
 @font-face {
   font-family:Metropolis;
   font-style:italic;
   font-weight:300;
   src:local("Metropolis Light Italic"),
-  url(/public/fonts/Metropolis-LightItalic-c7ea8d33.woff2) format("woff2"),
-  url(/public/fonts/Metropolis-LightItalic-114d5afe.woff) format("woff")
+  url(/fonts/Metropolis-LightItalic-c7ea8d33.woff2) format("woff2"),
+  url(/fonts/Metropolis-LightItalic-114d5afe.woff) format("woff")
 }
 @font-face {
   font-family:Metropolis;
   font-style:normal;
   font-weight:400;
   src:local("Metropolis Regular"),
-  url(/public/fonts/Metropolis-Regular-e920e6b0.woff2) format("woff2"),
-  url(/public/fonts/Metropolis-Regular-b19e8951.woff) format("woff")
+  url(/fonts/Metropolis-Regular-e920e6b0.woff2) format("woff2"),
+  url(/fonts/Metropolis-Regular-b19e8951.woff) format("woff")
 }
 @font-face {
   font-family:Metropolis;
   font-style:italic;
   font-weight:400;
   src:local("Metropolis Regular Italic"),
-  url(/public/fonts/Metropolis-RegularItalic-ccc6ad34.woff2) format("woff2"),
-  url(/public/fonts/Metropolis-RegularItalic-77f052dc.woff) format("woff")
+  url(/fonts/Metropolis-RegularItalic-ccc6ad34.woff2) format("woff2"),
+  url(/fonts/Metropolis-RegularItalic-77f052dc.woff) format("woff")
 }
 @font-face {
   font-family:Metropolis;
   font-style:normal;
   font-weight:500;
   src:local("Metropolis Medium"),
-  url(/public/fonts/Metropolis-Medium-f3a73873.woff2) format("woff2"),
-  url(/public/fonts/Metropolis-Medium-91cf497b.woff) format("woff")
+  url(/fonts/Metropolis-Medium-f3a73873.woff2) format("woff2"),
+  url(/fonts/Metropolis-Medium-91cf497b.woff) format("woff")
 }
 @font-face {
   font-family:Metropolis;
   font-style:italic;
   font-weight:500;
   src:local("Metropolis Medium Italic"),
-  url(/public/fonts/Metropolis-MediumItalic-f604beac.woff2) format("woff2"),
-  url(/public/fonts/Metropolis-MediumItalic-7ed18e53.woff) format("woff")
+  url(/fonts/Metropolis-MediumItalic-f604beac.woff2) format("woff2"),
+  url(/fonts/Metropolis-MediumItalic-7ed18e53.woff) format("woff")
 }
 @font-face {
   font-family:Metropolis;
   font-style:normal;
   font-weight:600;
   src:local("Metropolis Semi Bold"),
-  url(/public/fonts/Metropolis-SemiBold-695870d1.woff2) format("woff2"),
-  url(/public/fonts/Metropolis-SemiBold-bd9cc6de.woff) format("woff")
+  url(/fonts/Metropolis-SemiBold-695870d1.woff2) format("woff2"),
+  url(/fonts/Metropolis-SemiBold-bd9cc6de.woff) format("woff")
 }
 @font-face {
   font-family:Metropolis;
   font-style:italic;
   font-weight:600;
   src:local("Metropolis Semi Bold Italic"),
-  url(/public/fonts/Metropolis-SemiBoldItalic-f08b947a.woff2) format("woff2"),
-  url(/public/fonts/Metropolis-SemiBoldItalic-5e65c493.woff) format("woff")
+  url(/fonts/Metropolis-SemiBoldItalic-f08b947a.woff2) format("woff2"),
+  url(/fonts/Metropolis-SemiBoldItalic-5e65c493.woff) format("woff")
 }
 @font-face {
   font-family:Metropolis;
   font-style:normal;
   font-weight:700;
   src:local("Metropolis Bold"),
-  url(/public/fonts/Metropolis-Bold-9a712a2c.woff2) format("woff2"),
-  url(/public/fonts/Metropolis-Bold-cd1f8382.woff) format("woff")
+  url(/fonts/Metropolis-Bold-9a712a2c.woff2) format("woff2"),
+  url(/fonts/Metropolis-Bold-cd1f8382.woff) format("woff")
 }
 @font-face {
   font-family:Metropolis;
   font-style:italic;
   font-weight:700;
   src:local("Metropolis Bold Italic"),
-  url(/public/fonts/Metropolis-BoldItalic-6f0a19e8.woff2) format("woff2"),
-  url(/public/fonts/Metropolis-BoldItalic-3f088a11.woff) format("woff")
+  url(/fonts/Metropolis-BoldItalic-6f0a19e8.woff2) format("woff2"),
+  url(/fonts/Metropolis-BoldItalic-3f088a11.woff) format("woff")
 }
 @font-face {
   font-family:Metropolis;
   font-style:normal;
   font-weight:800;
   src:local("Metropolis Extra Bold"),
-  url(/public/fonts/Metropolis-ExtraBold-0c9ff630.woff2) format("woff2"),
-  url(/public/fonts/Metropolis-ExtraBold-f79c09f3.woff) format("woff")
+  url(/fonts/Metropolis-ExtraBold-0c9ff630.woff2) format("woff2"),
+  url(/fonts/Metropolis-ExtraBold-f79c09f3.woff) format("woff")
 }
 @font-face {
   font-family:Metropolis;
   font-style:italic;
   font-weight:800;
   src:local("Metropolis Extra Bold Italic"),
-  url(/public/fonts/Metropolis-ExtraBoldItalic-8ef75318.woff2) format("woff2"),
-  url(/public/fonts/Metropolis-ExtraBoldItalic-b4e62ca3.woff) format("woff")
+  url(/fonts/Metropolis-ExtraBoldItalic-8ef75318.woff2) format("woff2"),
+  url(/fonts/Metropolis-ExtraBoldItalic-b4e62ca3.woff) format("woff")
 }
 @font-face {
   font-family:Metropolis;
   font-style:normal;
   font-weight:900;
   src:local("Metropolis Black"),
-  url(/public/fonts/Metropolis-Black-bcd0ced5.woff2) format("woff2"),
-  url(/public/fonts/Metropolis-Black-ece44382.woff) format("woff")
+  url(/fonts/Metropolis-Black-bcd0ced5.woff2) format("woff2"),
+  url(/fonts/Metropolis-Black-ece44382.woff) format("woff")
 }
 @font-face {
   font-family:Metropolis;
   font-style:italic;
   font-weight:900;
   src:local("Metropolis Black Italic"),
-  url(/public/fonts/Metropolis-BlackItalic-fadeacd3.woff2) format("woff2"),
-  url(/public/fonts/Metropolis-BlackItalic-fc2225d4.woff) format("woff")
+  url(/fonts/Metropolis-BlackItalic-fadeacd3.woff2) format("woff2"),
+  url(/fonts/Metropolis-BlackItalic-fc2225d4.woff) format("woff")
 }
 html, body{
 margin:0;
@@ -193,7 +193,7 @@ margin: 0;
 /* ================= SELEÇÃO DE JOGOS (ORIGINAL OFICIAL) ================= */
 
 .checkout-garena-wrapper .headline {
-  background-image: url("images/bg-headline.png");
+  background-image: url("/images/bg-headline.png");
   background-size: cover;
   background-position: center;
   padding: 35px 0 50px;
@@ -484,7 +484,7 @@ margin: 0;
 
 /* Banner FF */
 .checkout-garena-wrapper .banner-ff {
-  background-image: url(images/FF-f997537d.jpg);
+  background-image: url(/images/FF-f997537d.jpg);
   border-radius: 12px;
   padding: 20px;
   margin-left: -18px;
@@ -526,7 +526,7 @@ margin: 0;
   border-radius: 7px;
   padding: 20px;
  
-  background-image: url(images/freefire-freeitem-bg-light-3457641a.png);
+  background-image: url(//images/freefire-freeitem-bg-light-3457641a.png);
 }
 
 .checkout-garena-wrapper .item-gratis .content-item {

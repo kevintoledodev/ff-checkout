@@ -345,12 +345,12 @@ export default function CheckoutPage({ initialProducts, onBack }: CheckoutPagePr
               <a href="/" className="flex-alt align-center-alt">
                 <div className="flex-alt align-center-alt">
                   <img
-                    src="images/logo-mobile.svg"
+                    src="/images/logo-mobile.svg"
                     alt="Garena"
                     className="block-alt show-mobile-alt"
                   />
                   <img
-                    src="images/logo.svg"
+                    src="/images/logo.svg"
                     alt="Garena"
                     className="none-alt show-desktop-alt"
                   />
@@ -361,7 +361,7 @@ export default function CheckoutPage({ initialProducts, onBack }: CheckoutPagePr
 
               <div className="flex-alt align-center-alt">
                 <img
-                  src="images/avatar.svg"
+                  src="/images/avatar.svg"
                   alt="Player Avatar"
                   width={30}
                   style={{ borderRadius: "50%" }}
@@ -382,11 +382,11 @@ export default function CheckoutPage({ initialProducts, onBack }: CheckoutPagePr
               <div className="ff-card-top">
                 <div className="ff-banner">
                   {/* substitua por <img/> se tiver banner real */}
-                  <img src="../../images/FF-f997537d.jpg" alt="Banner" />
+                  <img src="/images/FF-f997537d.jpg" alt="Banner" />
                 </div>
 
                 <div className="ff-game-icon">
-                  <img src="./../images/icon.png" alt="Free Fire" />
+                  <img src="/images/icon.png" alt="Free Fire" />
                 </div>
 
                 <h2 className="ff-game-title">Free Fire</h2>
