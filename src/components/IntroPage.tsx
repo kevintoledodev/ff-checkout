@@ -6,13 +6,13 @@ export default function IntroPage({ onStart }: IntroPageProps) {
   return (
     <div className="text-center animate-fade-in">
       <img
-        src="images/free fire2.png"
+        src="/images/free fire2.png"
         alt="Free Fire Banner"
         className="w-full mb-4 rounded"
       />
 
       <img
-        src="images/8 anos ff.webp"
+        src="/images/8 anos ff.webp"
         alt="8 Anos Free Fire"
         className="w-80 mx-auto mb-6"
       />

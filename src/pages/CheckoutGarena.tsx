@@ -193,7 +193,7 @@ export default function Login({ onGoToCheckoutPage }: LoginProps) {
               <a href="/" className="d-flex align-items-center">
                 <div className="d-flex align-items-center">
                   <img
-                    src="/images/logo-mobile.svg"
+                    src="/images/logo_mobile.svg"
                     alt="Garena"
                     className="d-block d-lg-none d-xl-none"
                   />
@@ -243,7 +243,7 @@ export default function Login({ onGoToCheckoutPage }: LoginProps) {
           <div className="overlay">
             <div className="overlay-l"></div>
             <img src="/images/cover.svg" alt="FreeFire" className="d-none d-lg-block d-xl-block" />
-            <img src="/images/cover-mobile.svg" alt="FreeFire" className="d-block d-lg-none d-xl-none" />
+            <img src="/images/cover_mobile.svg" alt="FreeFire" className="d-block d-lg-none d-xl-none" />
             <div className="overlay-r"></div>
           </div>
           <div className="container">

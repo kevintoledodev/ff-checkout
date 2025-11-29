@@ -12,7 +12,7 @@ export default function FinalPage({ onCheckout }: FinalPageProps) {
       </h2>
 
       <img
-        src="images/diamantes.png"
+        src="/images/diamantes.png"
         alt="Troféu"
         className="w-40 mx-auto mb-6"
       />

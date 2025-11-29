@@ -1,7 +1,7 @@
 export const quizData = {
-  logo: "images/free fire2.png",
-  errorImage: "public/303797e9-0d2d-40dd-a926-d0a36e6345b0.jpg",
-  congratsImage: "images/free fire2.png",
+  logo: "/images/free fire2.png",
+  errorImage: "/images/303797e9-0d2d-40dd-a926-d0a36e6345b0.jpg",
+  congratsImage: "/images/free fire2.png",
 
   steps: [
     {
@@ -13,10 +13,10 @@ export const quizData = {
       type: 'text-image',
       columns: 'grid-cols-2',
       options: [
-        { id: '1', title: 'M1887', image: 'images/images.jpg', isCorrect: false },
-        { id: '2', title: 'MP40', image: 'images/images (1).jpg', isCorrect: false },
-        { id: '3', title: 'Desert Eagle', image: 'images/desert-eagle.png', isCorrect: false },
-        { id: '4', title: 'Scar', image: 'images/SCAR.png', isCorrect: true }
+        { id: '1', title: 'M1887', image: '/images/images.jpg', isCorrect: false },
+        { id: '2', title: 'MP40', image: '/images/images (1).jpg', isCorrect: false },
+        { id: '3', title: 'Desert Eagle', image: '/images/desert-eagle.png', isCorrect: false },
+        { id: '4', title: 'Scar', image: '/images/SCAR.png', isCorrect: true }
       ],
       errorPageId: 'error1',
       nextPageId: 'break1'
@@ -30,10 +30,10 @@ export const quizData = {
       type: 'text-image',
       columns: 'grid-cols-2',
       options: [
-        { id: '1', title: 'Kalahari', image: 'images/kalahari.jpg', isCorrect: false },
-        { id: '2', title: 'Purgatorio', image: 'images/purgatorio.jpg', isCorrect: false },
-        { id: '3', title: 'Alpine', image: 'images/alpine.jpg', isCorrect: false },
-        { id: '4', title: 'Bermuda', image: 'images/bermuda.jpg', isCorrect: true }
+        { id: '1', title: 'Kalahari', image: '/images/kalahari.jpg', isCorrect: false },
+        { id: '2', title: 'Purgatorio', image: '/images/purgatorio.jpg', isCorrect: false },
+        { id: '3', title: 'Alpine', image: '/images/alpine.jpg', isCorrect: false },
+        { id: '4', title: 'Bermuda', image: '/images/bermuda.jpg', isCorrect: true }
       ],
       errorPageId: 'error2',
       nextPageId: 'step3'
@@ -64,10 +64,10 @@ export const quizData = {
       type: 'text-image',
       columns: 'grid-cols-2',
       options: [
-        { id: '1', title: 'Garena', image: 'images/garena.png', isCorrect: true },
-        { id: '2', title: 'Tencent', image: 'images/tencent.png', isCorrect: false },
-        { id: '3', title: 'Supercell', image: 'images/supercell.png', isCorrect: false },
-        { id: '4', title: 'Ubisoft', image: 'images/ubisoft.png', isCorrect: false }
+        { id: '1', title: 'Garena', image: '/images/garena.png', isCorrect: true },
+        { id: '2', title: 'Tencent', image: '/images/tencent.png', isCorrect: false },
+        { id: '3', title: 'Supercell', image: '/images/supercell.png', isCorrect: false },
+        { id: '4', title: 'Ubisoft', image: '/images/ubisoft.png', isCorrect: false }
       ],
       errorPageId: 'error4',
       nextPageId: 'step5'
@@ -81,10 +81,10 @@ export const quizData = {
       type: 'text-image',
       columns: 'grid-cols-2',
       options: [
-        { id: '1', title: 'Kapella', image: 'images/kapella.png', isCorrect: true },
-        { id: '2', title: 'Moco', image: 'images/moco.png', isCorrect: false },
-        { id: '3', title: 'Hayato', image: 'images/hayato.png', isCorrect: false },
-        { id: '4', title: 'Laura', image: 'images/laura.png', isCorrect: false }
+        { id: '1', title: 'Kapella', image: '/images/kapella.png', isCorrect: true },
+        { id: '2', title: 'Moco', image: '/images/moco.png', isCorrect: false },
+        { id: '3', title: 'Hayato', image: '/images/hayato.png', isCorrect: false },
+        { id: '4', title: 'Laura', image: '/images/laura.png', isCorrect: false }
       ],
       errorPageId: 'error5',
       nextPageId: 'step6'
