@@ -27,7 +27,8 @@ header.sticky-alt {
   width: 100%;
   object-fit: cover;        /* cobre toda a tela lindamente */
   object-position: center;  /* centraliza */          
-  opacity: 1;            /* igual estilo Free Fire */
+  opacity: 1;    
+  z-index: 234;        /* igual estilo Free Fire */
   pointer-events: none;     /* não bloqueia cliques */
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
@@ -127,13 +128,11 @@ header img {
 .ff-checkout-grid {
   display: grid;
   grid-template-columns: 760px 360px;
-  /* largura parecida com o oficial */
+
   gap: 26px;
   justify-content: center;
   width: 100%;
   max-width: 100%;
-
-  /* ou 100%, ou o valor que quiser */
 
   margin: 0 auto 60px;
   align-items: start;
@@ -603,36 +602,183 @@ header img {
 }
 
 
-/* responsividade */
-@media (max-width: 1180px) {
-  .ff-checkout-grid {
-    grid-template-columns: 1fr;
-    padding: 0 18px;
-    max-width: 760px;
+/* ============================================
+   RESPONSIVIDADE MOBILE – CHECKOUT GARENA
+   (0 → 768px)
+============================================ */
+
+@media (max-width: 768px) {
+
+  /* CONTAINER GERAL */
+  .checkout-garena-wrapper .body .container,
+  .checkout-garena-wrapper .headline .container {
+    padding: 0 12px !important;
   }
 
-  .ff-sidebar {
-    order: 2;
-  }
 
-  .ff-card {
-    order: 1;
-    margin-bottom: 20px;
-  }
+  /* Header */
+header.sticky-alt {
+  background: #fff;
+  width: 369px;
 }
 
-@media (max-width: 480px) {
-  .ff-banner img {
-    max-height: 90px;
+header .container-alt {
+  max-width: 1200px;
+  margin: 0 auto;
+
+  padding: 12px 16px;
+}
+
+  /* Remove espaço lateral e centraliza */
+  .container.main-content.ff-main {
+    padding: 10px 0 !important;
+    margin: 0 auto 60px;
+    
   }
 
-  .ff-game-icon {
-    width: 64px;
-    height: 64px;
-    margin-top: -22px;
-  }
-
+  /* GRID vira 1 coluna */
   .ff-checkout-grid {
-    padding: 0 12px;
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+    padding: 0 14px !important;
+    position: relative;
+    top: -30px;
+    right: 195px;
+  }
+
+  /* Card principal ocupa 100% */
+  .ff-card {
+    width: 320px !important;
+    padding: 14px !important;
+  }
+
+  /* Sidebar abaixo do card principal */
+  .ff-sidebar {
+    order: 2 !important;
+    width: 100% !important;
+  }
+
+  /* Banner */
+  .ff-banner img {
+    width: 120% !important;
+    position: relative;
+    top: -40px;
+    z-index: 0;
+    height: 80px;
+    max-height: 170px !important;
+    object-fit: cover !important;
+  }
+
+  .ff-back-btn {
+    z-index: 2;
+  } 
+
+  .error-text-cpf {
+    top: 2px;
+  }
+
+   .mobile strong{
+    left: 50px;
+    position: relative;
+  }
+
+  /* Ícone do jogo */
+  .ff-game-icon {
+    width: 68px !important;
+    height: 68px !important;
+    margin-top: -20px !important;
+  }
+
+  /* Título */
+  .ff-game-title {
+    font-size: 18px !important;
+    margin-top: 8px !important;
+  }
+
+  /* Totais */
+  .ff-total-line {
+    font-size: 14px !important;
+  }
+
+  .ff-breakdown .item {
+    font-size: 13px !important;
+  }
+
+  /* Textos longos do checkout (IMPORTANTÍSSIMO) */
+  .ff-note,
+  .ff-info-rows .row,
+  .ff-total-line,
+  .ff-breakdown,
+  .ff-note p,
+  .ff-card p {
+    white-space: normal !important;
+    word-break: break-word !important;
+    overflow: visible !important;
+    line-height: 1.45 !important;
+  }
+
+  /* Campos do formulário */
+  .ff-field {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 6px !important;
+  }
+
+  .ff-field label {
+    min-width: auto !important;
+    font-size: 13px !important;
+  }
+
+  .ff-field input {
+    width: 100% !important;
+    font-size: 14px !important;
+  }
+
+  /* Inputs em grid → vira coluna */
+  .two-columns {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+  }
+
+  /* CUPOM */
+  .cupom-box {
+    flex-direction: column !important;
+  }
+
+  .cupom-box button {
+    width: 100% !important;
+  }
+
+  /* Botão principal */
+  .pay-button {
+    width: 100% !important;
+    font-size: 15px !important;
+    padding: 14px !important;
+  }
+
+  /* Botão voltar alinhado corretamente */
+  .ff-back-btn {
+    position: relative !important;
+    left: 0 !important;
+    top: 0 !important;
+    margin-bottom: 10px !important;
+    align-self: flex-start !important;
+  }
+
+  /* Footer corrigido (sem ficar fixo fora da tela) */
+  .checkout-footer {
+    
+    position: relative !important;
+    top: 0 !important;
+    left: -210px;
+    width: 350px;
+    padding: 20px 0 !important;
+    
+  }
+
+  .checkout-footer-content {
+    flex-direction: column !important;
+    gap: 10px !important;
+    text-align: center !important;
   }
 }

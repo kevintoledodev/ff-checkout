@@ -39,8 +39,9 @@ export default function QuizPage({ title, subtitle, options, type, columns, onAn
               <img
                 src={option.image}
                 alt={option.title}
-                className="w-full h-32 object-cover rounded mb-3"
+                className="w-full h-32   object-contain rounded mb-3 mx-auto"
               />
+
             )}
 
             {type === 'text-emoji' && (

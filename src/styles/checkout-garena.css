@@ -419,13 +419,13 @@ margin: 0;
   position: absolute;
   top: 0;
   bottom: 0;
-  width: 600px;
-  z-index: 1;
+  width: 458px;
+  z-index: -0;
 }
 
 .checkout-garena-wrapper .headline .overlay-l {
   left: 0;
-  width: 1070px;
+  width: 1650px;
   background: linear-gradient(90deg, #ffc80000 0%, transparent 100%);
 }
 
@@ -1240,103 +1240,296 @@ margin: 0;
   color: #E6252A;
 }
 
+/* ============================
+   RESPONSIVIDADE MOBILE OFICIAL
+   (0 → 768px)
+============================ */
 
-/* Responsive */
 @media (max-width: 768px) {
-  .checkout-garena-wrapper .d-lg-block {
-    display: none !important;
+
+  /* CONTAINER GERAL */
+  .checkout-garena-wrapper .body .container,
+  .checkout-garena-wrapper .headline .container {
+    padding: 0 12px !important;
   }
 
-  .checkout-garena-wrapper .d-lg-none {
-    display: block !important;
+  /* ============================
+     HEADLINE E SELEÇÃO DE JOGOS
+  ============================= */
+  .checkout-garena-wrapper .banner {
+    height: 190px;
+  }
+
+  .checkout-garena-wrapper .banners .list-banners{
+    height: 190px;
+    width: 350px;
+  }
+
+  .checkout-garena-wrapper  .item img{
+    height: 150px;
+    width: 2px;
+    position: relative;
+    border-radius: 2px;
+    right: 12px;
+  }
+
+  .checkout-garena-wrapper .loader {
+  display: none;
+  width: 40px;
+  height: 40px;
+  position: relative;
+  bottom: 30px;
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #E6252A;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 60px auto;
+}
+
+.messageSection{
+  top: -60px;
+position: relative;
+}
+
+  .checkout-garena-wrapper .headline .overlay-r  {
+    display: none;
+  }
+
+.checkout-garena-wrapper .headline .overlay-l,
+.checkout-garena-wrapper .headline .overlay-r {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 500px;
+  z-index: 12;
+}
+  .checkout-garena-wrapper .headline h3 {
+    left: 0 !important;
+    text-align: left;
+    margin-bottom: 17px;
+    font-size: 18px;
+  }
+
+  .checkout-garena-wrapper .jogos {
+    margin-left: 0 !important;
+    gap: 10px;
+    overflow-x: auto;
+    padding-bottom: 6px;
+  }
+
+  .checkout-garena-wrapper .jogo img {
+    width: 68px;
+    height: 68px;
+  }
+
+  .checkout-garena-wrapper .jogo span {
+    font-size: 13px;
+  }
+
+
+  .checkout-garena-wrapper .headline .overlay .overlay-l .overlay-r{
+    width: 10px;
+    height: 1px;
+  }
+
+  /* ============================
+     BANNER FREE FIRE
+  ============================= */
+  .checkout-garena-wrapper .banner-ff {
+    margin-left: 0 !important;
+    position: relative;
+    right: 11px;
+    padding: 16px;
+    width: 340px;
+  }
+
+  .checkout-garena-wrapper .banner-ff .image img {
+    width: 58px;
+    height: 52px;
+    position: relative;
+    bottom: 10px;
+  }
+
+  .checkout-garena-wrapper .banner-ff .text h2 {
+    font-size: 17px;
+  }
+
+
+  /* ============================
+     ITEM GRÁTIS 
+  ============================= */
+  .checkout-garena-wrapper .item-gratis
+   {
+    width: 340px !important;
+    height: 110px !important;
+    padding: 16px;
   }
 
   .checkout-garena-wrapper .item-gratis .content-item {
-    flex-direction: column;
-    text-align: center;
+    flex-direction: row !important;
+    justify-content: space-between;
+  }
+
+  .checkout-garena-wrapper .item-gratis .item h3{
+    font-size: 16px;
+  }
+
+  .checkout-garena-wrapper .item-gratis .item p{
+    font-size: 12px;
+  }
+
+  .checkout-garena-wrapper .item-gratis .icone {
+    position: relative;
+    left: 210px;
+    bottom: 90px;
+  }
+
+  .checkout-garena-wrapper .item-gratis .icone img {
+    width: 60px;
+    height: 60px;
+  }
+
+
+  /* ============================
+      EVENTOS
+  ============================= */
+ 
+.checkout-garena-wrapper .eventos-especiais {
+    width: 340px !important;
+    height: 100px !important;
+    padding: 16px;
+}
+
+ .event-img {
+    margin-top: 20px;
+    position: relative;
+    top: 30px;
+    width: 340px !important;
+    height: 100px !important;
+    bottom: 0 !important;
+  }
+
+    .event-span{
+      font-size: 16px;
+    }
+
+  .checkout-garena-wrapper .eventos-especiais .evento h3 {
+    position: relative;
+    font-size: 18px;
+    bottom: 40px !important;
+    right: 10px !important;
+  }
+
+  /* ============================
+     LOGIN
+  ============================= */
+  .checkout-garena-wrapper .box-login {
+    width: 340px !important;
+    height: auto !important;
+    padding-bottom: 20px;
   }
 
   .checkout-garena-wrapper .form-login {
-    flex-direction: column;
-  }
-
-  .checkout-garena-wrapper .input-id {
-    width: 100%;
+    flex-direction: column !important;
+    height: auto;
+    gap: 10px !important;
+   
   }
 
   .checkout-garena-wrapper .btn-login {
-    width: 100%;
+    position: relative !important;
+    width: 30% !important;
+    height: 46.2px !important;
+    padding: 2px;
+    bottom: 56.5px;
+    left: 213px !important;
+   
   }
 
-  .checkout-garena-wrapper .social {
-    flex-direction: column;
-    align-items: flex-start;
+
+  /* ============================
+     VALOR DA RECARGA
+  ============================= */
+  .diamonds-grid {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
   }
 
+  .diamond-card {
+    width: 35% !important;
+  }
+
+  .diamond-card .diamond-value {
+    font-size: 18px;
+  }
+
+
+  /* ============================
+     OFERTAS ESPECIAIS
+  ============================= */
+  .offers-grid {
+    grid-template-columns: 1fr !important;
+    gap: 10px;
+  }
+
+  .offer-card {
+    width: 35% !important;
+    height: auto !important;
+    padding: 12px;
+  }
+
+  .offer-card img {
+    width: 100% !important;
+    margin-bottom: 10px;
+  }
+
+
+  /* ============================
+     PAGAMENTOS
+  ============================= */
+  .payment-grid {
+    grid-template-columns: 1fr !important;
+    gap: 14px;
+  }
+
+  .payment-card {
+    max-width: 35% !important;
+    height: 85px !important;
+    padding: 12px;
+  }
+
+  .payment-card img {
+    max-height: 50px !important;
+    right: 0 !important;
+  }
+
+  .payment-info p{
+    white-space: normal !important;
+    overflow: visible !important;
+    text-align: left !important;
+    line-height: 1.45;
+    word-break: break-word;
+    font-size: 7.8px;
+  }
+
+  .promo-tag {
+    transform: scale(0.9);
+  }
+
+
+  /* ============================
+     FOOTER
+  ============================= */
   .checkout-garena-wrapper .content-footer {
-    flex-direction: column;
-    align-items: flex-start;
+    flex-direction: column !important;
+    text-align: center !important;
+    gap: 8px;
   }
 
   .checkout-garena-wrapper .links-footer {
-    flex-direction: column;
-    gap: 12px;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 8px !important;
   }
 }
-
-@media (min-width: 769px) {
-  .checkout-garena-wrapper .d-xl-block {
-    display: block !important;
-  }
-
-  .checkout-garena-wrapper .d-xl-none {
-    display: none !important;
-  }
-
-  .checkout-garena-wrapper .list-banners .item {
-    height: 250px;
-  }
-}
-
-/* Utility Classes */
-.checkout-garena-wrapper .w-100 {
-  width: 100%;
-}
-
-.checkout-garena-wrapper .text-center {
-  text-align: center;
-}
-
-.checkout-garena-wrapper .justify-content-center {
-  justify-content: center;
-}
-
-/* Slick Carousel Overrides */
-.checkout-garena-wrapper .slick-dots {
-  bottom: 10px;
-  position: absolute;
-  top: 280px;
-  display: none;
-}
-
-.checkout-garena-wrapper .slick-dots li button:before {
-  color: #fff;
-  opacity: 0.5;
-  display: none;
-}
-
-.checkout-garena-wrapper .slick-dots li.slick-active button:before {
-  color: #ff0008;
-  opacity: 1;
-
-}
-
-.checkout-garena-wrapper .-scale-x-100 {
-  transform: scaleX(-1);
-}
-
-.checkout-garena-wrapper .scale-x-100 {
-  transform: scaleX(1);
-}
-
 

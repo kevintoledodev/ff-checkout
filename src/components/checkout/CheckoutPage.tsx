@@ -17,9 +17,19 @@ import '../../styles/checkout-garena.css';
 import { maskPhone, maskCPF, maskDate } from "../../utils/masks";
 import { emailSuggestion } from "../../utils/emailAutoComplete";
 
+import UpsellModal from "../UpsellModal";
+
+
 interface CheckoutPageProps {
   initialProducts?: Product[];
   onBack?: () => void;
+}
+
+interface UpsellModalProps {
+  visible: boolean;
+  onClose: () => void;
+  onAdd: (item: UpsellItem | null) => void;
+  onContinue: () => void;
 }
 
 const defaultProducts: Product[] = [
@@ -35,6 +45,10 @@ const defaultProducts: Product[] = [
   },
 ];
 
+
+
+
+
 export default function CheckoutPage({ initialProducts, onBack }: CheckoutPageProps) {
   // --- estados / lógica ---
   const [products, setProducts] = useState<Product[]>(initialProducts || defaultProducts);
@@ -44,21 +58,46 @@ export default function CheckoutPage({ initialProducts, onBack }: CheckoutPagePr
 
   const [showPix, setShowPix] = useState(false);
   const [pixData, setPixData] = useState<any>(null);
-  // amount real calculado a partir dos produtos (ex.: subtotal)
+  const resetUpsell = () => setUpsell(null);
+  const [upsell, setUpsell] = useState<UpsellItem | null>(null);
+
+
+  // ======================================================
+  // TOTAL DO PEDIDO (PRODUTO PRINCIPAL + UPSELLS)
+  // ======================================================
+  const [selectedUpsells, setSelectedUpsells] = useState<any[]>([]);
+  // soma dos produtos principais
   const subtotal = products.reduce((acc, p) => acc + p.price * p.quantity, 0);
-  const amount = subtotal; // valor em reais (converter pra centavos ao enviar)
+
+  // soma dos upsells selecionados (1 item máximo)
+  const upsellTotal = selectedUpsells.length > 0 ? selectedUpsells[0].price : 0;
+  const basePrice = 19.90; // ou passe via props
+
+  // soma final
+  const finalAmount = basePrice + (upsell?.price ?? 0);
+
+
+
+  // valor a ser enviado ao backend
+  const amount = finalAmount;
+
   const [loading, setLoading] = useState(false);
 
-  // Mantemos apenas customerData (removemos duplicidade)
+  const [showUpsell, setShowUpsell] = useState(false);
+
+
+
   const [customerData, setCustomerData] = useState<CustomerData>({
-    name: '',
-    email: '',
-    cpf: '',
-    phone: '',
-    birthDate: '',
+    fullName: "",
+    cpf: "",
+    phone: "",
+    email: "",
+    birthDate: "",
   });
 
+
   const [errors, setErrors] = useState({
+    name: '',
     cpf: "",
     email: "",
     phone: "",
@@ -92,6 +131,11 @@ export default function CheckoutPage({ initialProducts, onBack }: CheckoutPagePr
     handleValidateCustomerField("cpf", validateCPF(formatted));
   };
 
+  const handleProceed = () => {
+    setShowUpsell(true);
+  };
+
+
   // email
   const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const v = e.target.value;
@@ -124,62 +168,60 @@ export default function CheckoutPage({ initialProducts, onBack }: CheckoutPagePr
     setCouponMessage("Cupom inválido ou expirado.");
   };
 
-  const allValid =
-    (customerData.name || "").trim().length >= 3 &&
-    validateCPF(customerData.cpf) &&
-    validatePhone(customerData.phone) &&
-    validateBirthDate(customerData.birthDate || "") &&
-    errors.email === "";
-
-  // --- função que chama a API local em /api/create-pix ---
   const handleCreatePix = async () => {
     try {
-      console.log("→ Iniciando criação do PIX...");
       setLoading(true);
+      console.log("VALOR ENVIADO AO BACKEND:", amount);
 
-      // prepara payload esperado pela sua function
-      const payload = {
-        value: Math.round(amount * 100), // CENTAVOS
-        name: customerData.name,
-        email: customerData.email,
-        document: customerData.cpf.replace(/\D/g, "")
-      };
+      const formattedValue = Number(amount).toFixed(2); // 👈 AQUI ARRUMA
 
-      console.log("payload ->", payload);
-
-      const response = await fetch("/api/create-pix", {
+      const response = await fetch("http://192.168.15.30:3001/api/create-pix", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload)
+        body: JSON.stringify({
+          value: formattedValue,
+          user_id: customerData.telegramId,
+          cpf: customerData.cpf.replace(/\D/g, "")
+        })
       });
 
       const data = await response.json();
-      console.log("PIX DATA:", response.status, data);
+      console.log("PIX CREATED:", data);
 
-      if (!response.ok) {
-        // exibir erro do servidor (se vier via json)
-        const serverMsg = data?.error || data?.message || "Erro ao gerar PIX";
-        alert(`Erro ao gerar pagamento Pix: ${serverMsg}`);
-        setLoading(false);
+      if (!data.pixId || !data.code) {
+        alert("Erro ao gerar PIX");
         return;
       }
 
-      // adaptar ao formato do seu PixPayment
       setPixData({
-        pixCode: data.copyPaste || data.qrcode_text || data.pix?.copy_paste || data.copy_paste,
-        qrCodeBase64: data.qrCode || data.qrcode_base64 || data.pix?.qr_code || data.qrcode_base64,
-        merchant: "RECARGA",
-        cnpj: "00.000.000/0000-00"
+        identifier: data.pixId,
+        pixCode: data.code,
+        qrCodeBase64: data.qr,   // <<< aqui agora vem do servidor
+        merchant: " ",
+        cnpj: " "
       });
 
       setShowPix(true);
+
     } catch (err) {
-      console.error("ERRO NO PIX:", err);
-      alert("Erro inesperado ao gerar PIX.");
+      console.error(err);
+      alert("Erro ao criar PIX");
     } finally {
       setLoading(false);
     }
   };
+
+
+
+
+
+
+  const allValid =
+    (customerData.fullName || "").trim().length >= 3 &&
+    validateCPF(customerData.cpf) &&
+    validatePhone(customerData.phone) &&
+    validateBirthDate(customerData.birthDate || "") &&
+    errors.email === "";
 
   // --- JSX ---
   return (
@@ -192,14 +234,14 @@ export default function CheckoutPage({ initialProducts, onBack }: CheckoutPagePr
 
       <div
         className="ff-background"
-        
+
       >
         <header className="sticky-alt">
           <div className="container-alt">
             <div className="flex-alt align-center-alt justify-between-alt">
               <a href="/" className="flex-alt align-center-alt">
                 <div className="flex-alt align-center-alt">
-                  <img src="/images/logo-mobile.svg" alt="Garena" className="block-alt show-mobile-alt" />
+                  <img src="/images/logo_mobile.svg" alt="Garena" className="block-alt show-mobile-alt" />
                   <img src="/images/logo.svg" alt="Garena" className="none-alt show-desktop-alt" />
                   <div className="divider-alt"></div>
                 </div>
@@ -244,9 +286,8 @@ export default function CheckoutPage({ initialProducts, onBack }: CheckoutPagePr
                 <p className="ff-note">Os diamantes serão creditados diretamente na conta do jogo assim que recebermos a confirmação de pagamento.</p>
 
                 <div className="ff-info-rows">
-                  <div className="row"><span>Preço</span><strong>R$ {subtotal.toFixed(2)}</strong></div>
-                  <div className="row"><span>Método de pagamento</span><strong>Pix via PagSeguro</strong></div>
-                  <div className="row"><span>Nome do Jogador</span><strong>{customerData.name || 'SeuNickFF'}</strong></div>
+                  <div className="row"><span>Preço</span><strong>R$  {finalAmount.toFixed(2)}</strong></div>
+                  <div className="row mobile"><span>Método de pagamento</span><strong>Pix via PagSeguro</strong></div>
                 </div>
               </div>
 
@@ -266,7 +307,7 @@ export default function CheckoutPage({ initialProducts, onBack }: CheckoutPagePr
 
                   <div className="input-group">
                     <label>Nome Completo </label>
-                    <input type="text" placeholder="Nome Completo" value={customerData.name} onChange={(e) => onCustomerChange("name", e.target.value)} />
+                    <input type="text" placeholder="Nome Completo" value={customerData.fullName} onChange={(e) => onCustomerChange("fullName", e.target.value)} />
                   </div>
 
                   <div className="input-group">
@@ -298,10 +339,14 @@ export default function CheckoutPage({ initialProducts, onBack }: CheckoutPagePr
                     type="button"
                     className={`pay-button ${allValid ? "active" : "disabled"}`}
                     disabled={!allValid || loading}
-                    onClick={handleCreatePix}
+                    onClick={() => {
+                      if (!allValid) return;
+                      setShowUpsell(true);      // abre upsell
+                    }}
                   >
                     {loading ? "Gerando Pix..." : "Prosseguir para pagamento"}
                   </button>
+
                 </div>
               )}
             </section>
@@ -309,14 +354,34 @@ export default function CheckoutPage({ initialProducts, onBack }: CheckoutPagePr
 
           {showPix && (
             <PixPayment
-              pixCode={pixData?.pixCode}
-              qrCodeBase64={pixData?.qrCodeBase64}
+              identifier={pixData.identifier}   // ✔ O ID do easy-pix
+              pixCode={pixData.pixCode}         // ✔ O código copia e cola
+              qrCodeBase64={pixData.qrCodeBase64} // ✔ vai estar vazio mesmo
               amount={amount}
-              merchantName={pixData?.merchant}
-              merchantCnpj={pixData?.cnpj}
-              onBack={() => setShowPix(false)}
+              merchantName={pixData.merchant}
+              merchantCnpj={pixData.cnpj}
+              onBack={() => {
+                resetUpsell();   // ← volta para 19.90 sempre
+                setShowPix(false); // ← sua lógica atual
+              }}
+              onPaid={() => setShowPix(false)} // pode trocar depois para redirecionar
             />
           )}
+
+          <UpsellModal
+            visible={showUpsell}
+            onClose={() => setShowUpsell(false)}
+            onAdd={(item) => {
+              setUpsell(item);
+            }}
+
+            onContinue={() => {
+              setShowUpsell(false);
+              handleCreatePix();
+            }}
+          />
+
+
         </main>
 
         <div className="checkout-footer" style={{ marginTop: '28px' }}>

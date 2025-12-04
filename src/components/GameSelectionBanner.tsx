@@ -17,7 +17,7 @@ export default function GameSelectionBanner() {
   ];
 
   const settings = {
-    dots: true,
+    dots: false,
     infinite: true,
     speed: 600,
     slidesToShow: 1,

@@ -26,3 +26,215 @@
     }
   }
 }
+
+@keyframes goldPulse {
+  0% {
+    box-shadow: 0 0 6px rgba(255, 215, 0, 0.4),
+                0 0 12px rgba(255, 215, 0, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 14px rgba(255, 215, 0, 0.9),
+                0 0 24px rgba(255, 215, 0, 0.6);
+  }
+  100% {
+    box-shadow: 0 0 6px rgba(255, 215, 0, 0.4),
+                0 0 12px rgba(255, 215, 0, 0.2);
+  }
+}
+
+@keyframes shineMove {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+
+.gold-selected {
+  border: 1px solid #ffd700 !important;
+  animation: goldPulse 1.8s ease-in-out infinite;
+  position: relative;
+  overflow: hidden;
+  border-radius: 0.5rem;
+}
+
+.gold-selected::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255, 255, 255, 0.45),
+    transparent
+  );
+  animation: shineMove 2.5s linear infinite;
+  pointer-events: none;
+}
+
+
+.spark-container {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: visible;
+}
+
+.spark {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: radial-gradient(circle, #ffd700, transparent);
+  border-radius: 50%;
+  opacity: 0;
+  animation: sparkFly 0.8s ease-out forwards;
+}
+
+@keyframes sparkFly {
+  0% {
+    transform: translate(0, 0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(calc(-20px + 40px * var(--rand-x)), -60px) scale(0.2);
+    opacity: 0;
+  }
+}
+
+
+/* =========================================================
+   🔥 RESPONSIVIDADE — MODAL DE OFERTAS (UPSELL MODAL)
+   Mobile (0–480px) + Tablet (481–1024px)
+   Tudo sem afetar o Desktop
+========================================================= */
+
+/* ---------------------- MOBILE ---------------------- */
+@media (max-width: 480px) {
+
+  /* Modal ocupa quase toda a tela */
+  .upsell-modal {
+    max-width: 100% !important;
+    width: 60% !important;
+    padding: 14px !important;
+    justify-content: center;
+    position: relative;
+    right: 80px;
+  }
+
+  /* Grid vira 1 coluna */
+  .upsell-grid {
+    grid-template-columns: 1fr !important;
+    max-height: 70vh !important;
+    padding-right: 6px !important;
+  }
+
+  /* Card e imagem menores */
+  .upsell-card {
+    padding: 10px !important;
+  }
+
+  .upsell-card img {
+    height: 90px !important;
+  }
+
+  /* Texto */
+  .upsell-title {
+    font-size: 15px !important;
+  }
+
+  .upsell-price {
+    font-size: 14px !important;
+  }
+
+  /* Botões internos */
+  .upsell-btn {
+    font-size: 14px !important;
+    padding: 8px !important;
+  }
+
+  /* Footer dos botões */
+  .upsell-footer {
+    flex-direction: column !important;
+    gap: 10px !important;
+    width: 100% !important;
+  }
+
+  .upsell-footer button {
+    width: 100% !important;
+  }
+
+  /* Timer */
+  .upsell-timer {
+    right: 6px !important;
+    padding: 4px 8px !important;
+    font-size: 12px !important;
+  }
+}
+
+/* ---------------------- TABLET ---------------------- */
+@media (min-width: 481px) and (max-width: 1024px) {
+
+  /* Modal um pouco mais estreito para parecer o oficial */
+  .upsell-modal {
+    max-width: 80% !important;
+    padding: 20px !important;
+  }
+
+  /* Grid organiza em 2 colunas no tablet */
+  .upsell-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    max-height: 75vh !important;
+  }
+
+  /* Ajuste visual dos cards */
+  .upsell-card img {
+    height: 110px !important;
+  }
+
+  .upsell-title {
+    font-size: 16px !important;
+  }
+
+  .upsell-price {
+    font-size: 15px !important;
+  }
+
+  /* Footer */
+  .upsell-footer {
+    gap: 20px !important;
+  }
+
+  .upsell-footer button {
+    padding: 12px !important;
+    font-size: 15px !important;
+  }
+
+  .upsell-timer {
+    right: 12px !important;
+    font-size: 13px !important;
+  }
+}
+
+
+/* ANIMAÇÕES */
+.fade-in {
+  animation: fadeIn 0.2s ease-in;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.animate-popup,
+.copied-modal {
+  animation: popup 0.25s ease-out;
+}
+
+@keyframes popup {
+  0% { transform: scale(0.75); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+      

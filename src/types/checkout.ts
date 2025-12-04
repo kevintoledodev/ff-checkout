@@ -12,18 +12,11 @@ export interface Product {
 export interface CustomerData {
   fullName: string;
   cpf: string;
-  email: string;
   phone: string;
-  cep: string;
-  street: string;
-  number: string;
-  complement: string;
-  neighborhood: string;
-  city: string;
-  state: string;
-  birthDate: string; // ← TEM QUE SER EXATAMENTE ASSIM
+  email: string;
+  birthDate: string;
+  telegramId: "";
 }
-
 
 export interface PaymentMethod {
   type: 'pix' | 'credit_card' | 'boleto';

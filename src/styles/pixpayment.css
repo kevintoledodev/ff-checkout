@@ -239,6 +239,79 @@ margin: 0;
   background: #f8f8f8;
 }
 
+
+/* ===== MODAL DE CÓDIGO COPIADO ===== */
+.copied-modal {
+  background: #fff;
+  padding: 22px;
+  border-radius: 10px;
+  text-align: center;
+  width: 100%;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+}
+
+.modal-alert {
+  background: #fff;
+  padding: 22px;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 350px;
+  text-align: center;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+  animation: popup 0.25s ease-out;
+}
+
+
+/* MOBILE */
+@media (max-width: 480px) {
+  .modal-alert {
+    width: 88%;
+    padding: 18px;
+  }
+
+  .modal-alert h3 {
+    font-size: 18px;
+  }
+
+  .modal-alert p {
+    font-size: 13px;
+  }
+}
+
+/* TABLET */
+@media (min-width: 481px) and (max-width: 991px) {
+  .modal-alert {
+    width: 70%;
+    max-width: 360px;
+  }
+}
+
+/* MOBILE */
+@media (max-width: 480px) {
+  .copied-modal {
+    width: 370px;
+    padding: 18px;
+  }
+
+  .copied-modal h3 {
+    font-size: 17px;
+  }
+
+  .copied-modal p {
+    font-size: 13px;
+  }
+}
+
+/* TABLET */
+@media (min-width: 481px) and (max-width: 991px) {
+  .copied-modal {
+    width: 70%;
+    max-width: 360px;
+  }
+}
+
+
+
 .pix-copy-btn {
   width: 100%;
   background: #e00000;
@@ -281,3 +354,87 @@ margin: 0;
   margin-top: 22px;
   cursor: pointer;
 }
+
+/* ================================
+   📱 RESPONSIVIDADE PIX PAYMENT
+================================ */
+
+/* --- MOBILE (até 480px) --- */
+@media (max-width: 480px) {
+
+  .pix-container {
+    width: 100% !important;
+    padding: 20px;
+    border-radius: 10px;
+    position: relative !important;
+    bottom:  80px;
+    left: -195px;
+    margin: 0 auto;
+  }
+
+  .pix-title {
+    font-size: 20px;
+    margin-bottom: 16px;
+  }
+
+  .pix-qrcode {
+    width: 140px;
+    height: 140px;
+    margin-bottom: 16px;
+  }
+
+  .pix-merchant {
+    font-size: 14px;
+    line-height: 1.4;
+  }
+
+  .pix-code-box {
+    height: 80px;
+    font-size: 13px;
+    padding: 10px;
+  }
+
+  .pix-copy-btn {
+    padding: 12px;
+    font-size: 15px;
+  }
+
+  .pix-back-btn {
+    padding: 12px;
+    font-size: 15px;
+  }
+
+  .pix-instructions {
+    font-size: 13px;
+  }
+}
+
+
+/* --- TABLET (481px até 991px) --- */
+@media (min-width: 481px) and (max-width: 991px) {
+
+  .pix-container {
+    width: 90% !important;
+    padding: 28px;
+    border-radius: 12px;
+    position: static !important;
+    margin: 0 auto;
+  }
+
+  .pix-title {
+    font-size: 22px;
+  }
+
+  .pix-qrcode {
+    width: 160px;
+    height: 160px;
+  }
+
+  .pix-code-box {
+    height: 90px;
+    font-size: 14px;
+  }
+}
+
+
+

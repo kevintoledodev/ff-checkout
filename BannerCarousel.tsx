@@ -28,7 +28,7 @@ const NextArrow = (props: any) => {
 
 export default function BannerCarousel() {
   const settings = {
-    dots: true,
+    dots: false,
     infinite: true,
     autoplay: true,
     autoplaySpeed: 3200,

@@ -71,13 +71,13 @@ export const validateCoupon = async (
    3) GERAR PIX VIA VERCEL — DEFINITIVO
 ====================================================== */
 export async function createPixViaVercel(order: Order) {
-  const endpoint = "/api/create-order"; // caminho interno no deploy
+  const endpoint = "/api/create-order";
 
   const payload = {
-    amount: Number(order.total.toFixed(2)),
+    value: Number(order.total.toFixed(2)),      // valor correto
     name: order.customer.fullName,
-    cpf: order.customer.cpf.replace(/\D/g, ""),
     email: order.customer.email,
+    document: order.customer.cpf.replace(/\D/g, ""), // CPF correto
   };
 
   console.log("→ Enviando pedido para Vercel API...", payload);
@@ -90,7 +90,7 @@ export async function createPixViaVercel(order: Order) {
     body: JSON.stringify(payload),
   });
 
-  let data: PaymentResponse;
+  let data;
 
   try {
     data = await response.json();
@@ -101,7 +101,7 @@ export async function createPixViaVercel(order: Order) {
 
   if (!response.ok) {
     console.error("🔥 Erro API Vercel:", data);
-    throw new Error(data?.message || "Erro ao gerar Pix");
+    throw new Error(data?.error || "Erro ao gerar Pix");
   }
 
   console.log("→ Resposta da SyncPay:", data);
@@ -112,7 +112,7 @@ export async function createPixViaVercel(order: Order) {
     copyPaste: data.pix_code,
   };
 }
-
+  
 /* ======================================================
    4) UTM
 ====================================================== */

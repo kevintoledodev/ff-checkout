@@ -51,16 +51,7 @@ export default function Slider() {
         <div className="overlay-right overlay-banner"></div>
         <div className="overlay-left overlay-banner"></div>
 
-        {/* DOTS */}
-        <div className="dots">
-          {banners.map((_, index) => (
-            <span
-              key={index}
-              className={`dot ${index === current ? "active" : ""}`}
-              onClick={() => setCurrent(index)}
-            ></span>
-          ))}
-        </div>
+    
 
       </div>
     </div>
